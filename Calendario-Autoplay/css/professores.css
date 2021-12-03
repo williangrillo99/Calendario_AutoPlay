@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Calibri';
+    overflow-y: hidden
+}
+
+main{
+    position: relative;
+    min-height: calc(100vh - 140px);
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.container{
+    display: flex;  
+}
+
+#titulo{
+    font-weight: bold;
+}
+.navegacao{
+    width: 71px;
+    height: 100vh;
+    background: #003DA5;   
+}
+.teste{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.logo{
+    height: 80%;
+    width: 80%;
+    border-radius: 10px;
+}
+header{
+    display: flex;
+}
+header div li{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+header div li:hover{
+    background: black;
+}
+section{
+    width: 100%;
+    background-color: #EDEDED;
+}
+.cabecario{
+    height: 53px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    background-color: white;
+}
+.cabecario p{
+    font-size: 24px;
+    margin-left: 57px;
+    margin-right: 81px;
+    font-weight: lighter;
+}
+.cabecario input{
+    height: 24px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    font-family: 'Calibri';
+    font-size: 16px;
+}
+.cabecario input:focus{
+    outline: 0;
+    font-family: 'Calibri';
+    font-size: 16px;
+}
+.cabecariosecundario{
+    height: 54px;
+    margin-left: 8px;
+    background: #EDEDED;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+}
+
+section .cabecariosecundario input{
+    height: 37px;
+    width: 152px;
+    background-color: #008000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 49px;
+}
+section .cabecariosecundario input:hover{
+    background-color: green;
+}
+.cabecarioatributos{
+    background: #F6F6F6;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.nomesatributos{
+    font-size: 16px;
+    font-weight: bold;
+}
+.turmas{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    padding: 5px;
+    height: 25px;
+    background: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.turmas:hover{
+    border: 1px solid #cccccc;
+}
+.atributos span{
+    color: #242424;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.turmas span{
+    font-size: 16px;
+}
+.centralizarnomesturmars{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+}
+.atributos{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 1px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;  
+}
+#boxTabela{
+    background-color: #EDEDED;
+    margin: 0 57px 0 57px;
+}
+table{
+    width: 100%;
+}
+th{
+    width: 250px; 
+}
+td{
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+th, td{
+    text-align: center;
+}
+table, th, td{
+    border-collapse: separate;
+    border-spacing:0 10px;
+}
+tbody>tr>:nth-child(1){
+    border-radius: 10px 0px 0px 10px;
+}
+tbody>tr>:nth-child(3){
+    border-radius: 0px 10px 10px 0px;
+}
+
+
+

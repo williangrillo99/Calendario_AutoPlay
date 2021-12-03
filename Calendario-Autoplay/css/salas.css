@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Calibri';
+    overflow-y: hidden
+}
+
+.container{
+    display: flex;
+    
+}
+#titulo{
+    font-weight: bold;
+}
+.navegacao{
+    width: 71px;
+    /* height: 100vh; */
+    background: #003DA5;   
+}
+.teste{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logo{
+    height: 80%;
+    width: 80%;
+    border-radius: 10px;
+    
+  
+}
+header{
+    display: flex;
+}
+
+header div li{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+header div li:hover{
+    background: black;
+}
+section{
+    width: 100%;
+}
+.cabecario{
+    
+    height: 53px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+}
+.cabecario p{
+    font-size: 24px;
+    margin-left: 57px;
+    margin-right: 81px;
+    font-weight: lighter;
+}
+.cabecario input{
+    height: 24px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    font-family: 'Calibri';
+    font-size: 16px;
+}
+.cabecario input:focus{
+    outline: 0;
+    font-family: 'Calibri';
+    font-size: 16px;
+    
+}
+.cabecariosecundario{
+    height: 54px;
+    width: 100%;
+    background: #EDEDED;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+    
+}
+section .cabecariosecundario input{
+    height: 37px;
+    width: 152px;
+    background: #008000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 49px;
+}
+.cabecarioatributos{
+    background: #F6F6F6;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.containerimagens{
+    
+    margin-top: 23px;
+    margin-left: 49px;
+    width: 245px;
+    height: 149px;
+    border-radius: 5px;
+    background-image: url(../imagens/sala.jpg);
+    background-repeat: no-repeat;
+    padding: 10px;
+    background-position: center;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 1) 0px -60px 35px -20px inset;
+    
+}
+
+
+.nomesatributos{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+span{
+    color: white;
+}
+.titulo{
+    
+    font-weight: bold;
+    font-size: 32px;
+
+}
+.capacidade{
+    margin-left: 5px;
+    font-weight: lighter;
+}
+.editaricones{
+    display: flex;
+    align-items: center
+}
+.editaricones2{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+.icone{
+    display: flex;
+    justify-content: right;
+}
+.tooltip{
+    position: relative;
+    height: 60px;
+    width: 250px;
+    background: black;
+    text-align: center;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Professores- AutoGlass</title>
+    <link rel="stylesheet" href="../css/professores.css">
+    <link rel="stylesheet" href="../css/modal_add_professor.css">
+</head>
+<body>
+    <script src="../js/modal_add_professor.js"></script>
+
+    <div class="container">
+        <header>
+            <div class="navegacao">
+                <nav>    
+                    <div class="teste"> 
+                        <img class="logo" src="../imagens/LogoMarca.png">
+                    </div>
+                    <ul>                     
+                        <li>
+                            <a href="#"><img class="calendario" src="../imagens/icone_calendario.svg" alt="Calendario"></a>
+                        </li>
+                        <li>
+                            <a href="professor.html"><img  src="../imagens/icone_professor.svg" alt="Professores"></a>
+                        </li>
+                        <li>
+                            <a href="salas.html"><img  src="../imagens/icone_sala.svg" alt="Salas"></a>
+                        </li>
+                        <li>
+                            <a href="turmas.html"><img  src="../imagens/icone_turma.svg" alt="Turmas"></a>
+                        </li>
+                        <li>
+                            <a href="disciplina.html"><img  src="../imagens/icone_disciplina.svg" alt="Turmas"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section>
+            <div class="cabecario">
+                <p id="titulo">Professores</p>
+                <input  placeholder="Pesquisar sala">
+            </div>
+            <div class="cabecariosecundario">
+                <input type="button" value="Adicionar Professor" class="btn_adicionar_professor" onclick="cadastrar()">
+            </div>
+            
+                <div id="boxTabela">
+                    <table class="tabela-professores">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cargo</th>
+                            <th>Área</th>
+                        </tr>
+                        <tr>
+                            <td>Ícaro Leite Ramos</td>
+                            <td>Estagiário</td>
+                            <td>TI</td>
+                        </tr>
+                        <tr>
+                            <td>Willian Wagner Rocha Grillo</td>
+                            <td>Estagiário</td>
+                            <td>TI</td>
+                        </tr>
+                        <tr>
+                            <td>Gabriela Neves</td>
+                            <td>Atleta</td>
+                            <td>Crossfit</td>
+                        </tr>
+                        <tr>
+                            <td>Erika Assis</td>
+                            <td>Estagiária</td>
+                            <td>TI</td>
+                        </tr>
+                        <tr>
+                            <td>Elisa Mesquita</td>
+                            <td>Estagiária</td>
+                            <td>TI</td>
+                        </tr>
+                    </table>
+                </div>
+                
+        <!-- --------------------AQUI COMEÇA O NOSSO MODAL-------------------------- -->
+
+        <div class="bodyy">
+            
+            <div class="modal">
+                <span onclick="fechar()" class="fechar">&times;</span>
+                <div id="boxCadastro">
+                    <h1>Adicionar Professor</h1>
+                    <div class="linha"></div>
+                    
+                    <form>
+                        <div class="boxCredenciais" id="boxNomeCompleto">
+                            <p>Nome Completo</p>
+                            <input type="text" class="botao">
+                        </div>
+        
+                        <div class="boxCredenciais" id="boxNumeroApelido">
+                            <div>
+                                <p>Contato</p>
+                                <input type="text" class="botao">
+                            </div>
+                            <div>
+                                <p>Apelido</p>
+                                <input type="text" class="botao">
+                            </div>   
+                        </div>
+        
+                        <div class="boxCredenciais" id="boxCargoArea">
+                            <div>
+                                <p>Cargo</p>
+                                <input type="text" class="botao">
+                            </div>
+                            <div>
+                                <p>Área</p>
+                                <input type="text" class="botao">
+                            </div>   
+                        </div>
+        
+                        <div class="boxCredenciais" id="boxEmail">
+                            <p>E-mail</p>
+                            <input type="email" class="botao">
+                        </div>
+        
+                        <div class="boxCredenciais" id="boxConcluir">
+                            <input type="submit" id="botaoConcluir" value="Concluir">
+                        </div>
+                    </form>
+                </div>
+            </div>    
+        </div>
+        </section>
+    </div>
+</body>
+</html>
