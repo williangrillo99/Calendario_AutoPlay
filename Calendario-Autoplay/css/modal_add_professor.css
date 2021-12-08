@@ -88,7 +88,7 @@ form p{
 #boxNomeCompleto{
     padding-top: 25px;
 }
-#boxNumeroApelido, #boxCargoArea{
+#boxNumeroApelido, #boxDisponibilidade{
     padding-top: 10px;
     display: flex;
     flex-direction: row;  
@@ -109,4 +109,9 @@ form p{
     cursor: pointer;
     width: 180px;
     height: 40px;
+}
+.select{
+    display: flex;
+    flex-direction: column;
+    width: 159px;
 }
