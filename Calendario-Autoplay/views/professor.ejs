@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/professores.css">
+    <link rel="stylesheet" href="/css/modais/modal_professor.css">
+</head>
+<body>
+        <header>
+            <%- include('partials/nav') %>
+        </header>
+        <section class="conteudo">
+            <div class="container-conteudo">
+                <div class="cabecariosecundario">
+                    <input type="button" value="Adicionar Professor" class="btn_adicionar_professor">
+                </div>
+                    <div id="boxTabela">
+                        <table class="tabela-professores">
+                            <tr>
+                                <th>Professor</th>
+                                <th>Pilar</th>
+                                <th>Email</th>
+                                <th>Abreviação</th>
+                                <th>Disponibilidade</th>
+                            </tr>
+                            <% professores.forEach(professor => { %>
+                                <tr class="professor"> 
+                                    <td class="id"><%= professor.id%></td>
+                                    <td class="nome"><%= professor.nome%></td>
+                                    <td class="pilar"><%=professor.pilar%></td>
+                                    <td class="email"><%=professor.email%></td>
+                                    <td class="abreviacao"><%=professor.abreviacao%></td>
+                                    <td class="disponibilidade"><%=professor.disponibilidade%></td>
+                                    <td><a class="edita" href="">
+                                        <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                    </a></td>
+                                    <td><a class="remove" href="">
+                                        <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                                    </a></td>
+                                </tr>
+                            <%})%>
+                            
+                        </table>
+                    </div>
+                    
+    
+            </div>
+        </section>
+        <%- include('partials/professor/modalCadastro')%>
+        <%- include('partials/professor/excluir') %>
+</body>
+<script src="/js/professor/modalProfessor.js"></script>
+<script src="/js/professor/pesquisarProfessor.js"></script>
+<script src="/js/professor/editaProfessor.js"></script>
+<script src="/js/professor/excluirProfessor.js"></script>
+<script src="/js/professor/adicionaProfessor.js"></script>
+<script src="/js/professor/validaFormulario.js"></script>
+</html>

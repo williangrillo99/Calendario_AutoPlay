@@ -1,0 +1,11 @@
+{
+    "mysql": {
+        "database": "agendacec",
+        "usuario": "root",
+        "senha": "Autoglass@2020",
+        "host": "localhost"
+    },
+    "api": {
+        "porta": "3000"
+    }
+}

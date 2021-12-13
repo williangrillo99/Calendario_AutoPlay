@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/disciplina.css">  
+    <link rel="stylesheet" href="/css/modais/modal_disciplina.css">
+</head>
+<body>
+        <header >
+            <%- include('partials/nav') %>
+        </header>
+        <section class="conteudo">
+            <div class="container-conteudo">
+                <div class="cabecariosecundario">
+                    <input type="button" value="Adicionar Disciplina" class="btn_adicionar_professor" onclick="cadastrar()">
+                </div>
+                <div class="boxTabela">
+                    <table class="tabela-disciplina">
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Pilar</th>
+                            <th>Categoria</th>
+                        </tr>
+                        <tr class="disciplina">
+                            <td>Banco de dados</td>
+                            <td>TI</td>
+                            <td>Autoplay</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </section>
+        <%- include('partials/disciplina/modalCadastro')%>
+        
+</body>
+<script src="/js/modal.js"></script>   
+</html>

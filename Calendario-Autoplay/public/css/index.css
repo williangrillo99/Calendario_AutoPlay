@@ -1,0 +1,89 @@
+.conteudo{
+    width: calc(100% - 75px);
+    height: calc(100vh - 71px);
+    display: inline-block;
+}
+.container-conteudo{
+    margin-left: 80px;
+}
+.cabecariosecundario{
+    height: 54px;
+    width: 100%;
+    background: #EDEDED;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #cccccc;  
+}
+
+section .cabecariosecundario input{
+    height: 37px;
+    width: 152px;
+    background: #008000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.turmas{
+    margin-right: 50px;
+    margin-top: 10px;
+    padding: 5px;
+    background: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+}
+
+
+.fundo{
+    background: #F6F6F6;
+    height: 100%;
+    width: 100%;
+}
+
+.centralizarnomesturmars{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#data {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#quantidade {
+    text-align: center;
+    margin-left: 4px;
+}
+
+.sala {
+    width: 12vw;
+    margin-top: 10px;
+}
+
+.sala .local {
+    font-weight: bold;
+    font-size: 16px;
+    background: #006064;
+    color: white;
+    padding: 3px;
+    border: 1px solid #cccccc;
+}
+
+.sala p {
+    background: #5887f9;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+
+.sala .auto {
+    background: #1976D2;
+}
+
+.sala .encerrado {
+    background: #e0e0e0;
+}

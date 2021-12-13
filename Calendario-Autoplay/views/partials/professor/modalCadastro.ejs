@@ -1,0 +1,56 @@
+<div class="body">
+            
+    <div class="modal">
+        <span onclick="fechar()" class="fechar">&times;</span>
+        <h3 class="titulo">Adicionar Professor</h3>
+        <div id="boxCadastro">
+                    <div class="mensagens-validacao">
+                        <ul class="mensagem"></ul>
+                    </div>
+                    <form method="POST" action="/professor/cadastro" class="form">
+                        <div class="boxCredenciais" id="boxNomeCompleto">
+                            <label for="nome">Nome Completo</label>
+                            <input name="nome" type="text" class="botao" required>
+                        </div>
+        
+                        <div class="boxCredenciais" id="boxPilar">
+                            <div>
+                                <label for="abreviacao">Abreviação</label>
+                                <input name="abreviacao" type="text" class="botao" required>
+                            </div> 
+                            <div class="select">
+                                <label for="pilar">Pilar</label>
+                                <select name="pilar" class="botao" required>
+                                    <option value="TI">TI</option>
+                                    <option value="Comércio">Comércio</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="disponibilidade">Disponibilidade</label>
+                                <select name="disponibilidade" class="botao" required>
+                                    <option value="Disponivel" selected>Disponivel</option>
+                                    <option value="Atestado">Atestado</option>
+                                    <option value="Ferias">Ferias</option>
+                                </select>
+                        
+                            </div>  
+                
+                        </div>
+        
+                        <div class="boxCredenciais" id="boxEmail">
+                            <label for="email">E-mail</label>
+                            <input name="email" type="email" class="botao" required>
+                        </div>
+        
+                        <div class="BotaoConcluireCancelar" id="boxConcluir">
+                                <div>
+                                    <input type="submit" id="botaoConcluir" value="Adicionar">                      
+                                </div>
+                                <div>
+                                    <input type="button" id="botaoCancelar" value="Cancelar">                      
+                                </div>
+                        </div>
+                    </form>
+        </div>
+    </div>    
+</div>

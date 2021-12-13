@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/turmas.css">
+    <link rel="stylesheet" href="/css/modais/modal_turma.css">
+</head>
+<body>
+        <header >
+            <%- include('partials/nav') %>
+        </header>
+        <section class="conteudo">
+            <div class="container-conteudo">
+                <div class="cabecariosecundario">
+                    <input type="button" value="Adicionar Turma" class="btn_adicionar_professor" onclick="cadastrar()">
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        </section>
+        <%- include('partials/turmas/modalCadastro')%>
+   
+</body>
+<script src="/js/modal.js"></script>
+</html>
