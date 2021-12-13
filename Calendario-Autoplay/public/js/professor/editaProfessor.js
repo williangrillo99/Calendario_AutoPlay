@@ -8,7 +8,6 @@ btnEdita.forEach(edita => {
         modal.style.display = 'flex';
         document.querySelector('.titulo').textContent = "Atualizar Professor"
 
-        
         let tr = event.target.parentNode.parentNode.parentNode;
         
         let id = tr.querySelector('.id')

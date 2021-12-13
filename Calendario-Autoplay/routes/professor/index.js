@@ -3,7 +3,7 @@ const Professor = require('./Professor')
 
 rotasProfessor.get('/', async(req, res) => {
     const professores = await Professor.listar()
-    // console.log(professores);
+    console.log(professores);
         res.render('../views/professor', {
             title: 'Professores',
             professores: professores
