@@ -1,17 +1,19 @@
 {
-  "development": {
+  "test": {
     "username": "tzzfrykg",
     "password": "MsrUg-2Q8FTlyqvado083yMuIAkjDPKC",
     "database": "tzzfrykg",
     "host": "castor.db.elephantsql.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "timezone": "-03:00"
   },
-  "test": {
+  "development": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "password": "Autoglass@2020",
+    "database": "agendacec",
+    "host": "localhost",
+    "dialect": "mysql",
+    "timezone": "-03:00"
   },
   "production": {
     "username": "root",

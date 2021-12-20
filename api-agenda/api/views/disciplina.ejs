@@ -20,15 +20,13 @@
                             <th class="id">id</th>
                             <th>Disciplina</th>
                             <th>Pilar</th>
-                            <th>Categoria</th>
                             <th>Carga Horária</th>
                         </tr>
                         <%disciplinas.forEach(disciplina => {%>
                             <tr class="disciplina">
                                 <td class="id"><%= disciplina.id%></td>
                                 <td class="nome"><%= disciplina.name%></td>
-                                <td class="pilar"><%= disciplina.pilar.pilar%></td>
-                                <td class="categoria"><%= disciplina.pilar.categoria%></td>
+                                <td class="pilar"><%= disciplina.pilar%></td>
                                 <td class="horas"><%= disciplina.horas%></td>
                                 <td><a class="edita" href="">
                                     <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>

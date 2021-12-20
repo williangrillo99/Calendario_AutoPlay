@@ -61,6 +61,9 @@ class EventosController{
             if(disciplina.pilar != professor.pilar){
                 throw new Error(`${professor.nome} não pode dar aula de ${disciplina.name}`)
             }
+            if(turma.pilar.pilar != professor.pilar){
+                throw new Error(`${professor.nome} não pode dar para turma ${turma.nome}`)
+            }
             
             const evento = await modelos.eventos.create(infoEvento)
             return evento
@@ -115,7 +118,7 @@ class EventosController{
                 arrayEventos.push(reserva)
             });
 
-            return arrayEventos
+            return arrayEventos;
             
         } catch (error) {
             throw new Error(error.message)

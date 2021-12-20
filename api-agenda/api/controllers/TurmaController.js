@@ -25,7 +25,8 @@ class TurmaController {
 
     static async pegaIdTurma(nome){
         const turma = await modelos.turmas.findOne({
-            where: {nome: {[Op.iLike]: nome}}
+            where: {nome: {[Op.like]: nome}},
+            include: {model: modelos.pilares, as: 'pilar'}
         })
 
         if(!turma){

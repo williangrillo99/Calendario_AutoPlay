@@ -34,7 +34,7 @@ class UsuarioController{
 
     static async pegaIdProfessor(nome){
         const professor = await modelos.usuarios.findOne({
-            where: {abreviacao: {[Op.iLike]: nome}}
+            where: {abreviacao: {[Op.like]: nome}}
         })
 
         if(!professor){

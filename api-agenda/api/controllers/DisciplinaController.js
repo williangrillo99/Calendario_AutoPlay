@@ -22,7 +22,7 @@ class DisciplinaController {
 
     static async pegaIdDisciplina(nome){
         const disciplina = await modelos.disciplinas.findOne({
-            where: {name: {[Op.iLike]: nome}}
+            where: {name: {[Op.like]: nome}}
         })
 
         if(!disciplina){

@@ -20,7 +20,6 @@ rotasEventos.post('/cadastro', async (req, res) =>{
     try{
         const resultado = req.body
         const eventos = await EventosController.criar(resultado)
-        
         res.json(eventos)
     }catch(erro){
         res.json({erro: erro.message})
