@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Calibri';
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #cccccc; 
+}
+
+.container-logo{
+    border-right: 1px solid #cccccc;
+}
+
+.cabecario{
+    height: 53px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.pesquisar-professor{
+    padding-left:25px;
+}
+.container-pesquisar{
+    position: relative;
+}
+
+.fa-search{
+    position: absolute;
+    top:3px;
+    left: 5px;
+}
+.cabecario p{
+    font-size: 24px;
+    margin-left: 55px;
+    margin-right: 80px;
+    font-weight: bold;
+}
+.cabecario input{
+    height: 25px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    font-family: 'Calibri';
+    font-size: 16px;
+}
+.cabecario input:focus{
+    outline: 0;
+    font-family: 'Calibri';
+    font-size: 16px;
+}
+
+.navegacao{
+    float: left;
+    width: 75px;
+    height: calc(100vh - 71px);
+    background: #003DA5;   
+}
+
+.logo{
+    max-height: 56px;
+    max-width: 168px;
+    border-radius: 10px;
+}
+
+.lista li{
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.navegacao li:hover{
+    background: black;
+}
+
+.conteudo{
+    background-color: #EDEDED;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/turmas.css">
+    <link rel="stylesheet" href="/css/modais/modal_turma.css">
+</head>
+<body>
+        <header >
+            <%- include('partials/nav') %>
+        </header>
+        <section class="conteudo">
+            <div class="container-conteudo">
+                <div class="cabecariosecundario">
+                    <input type="button" value="Adicionar Turma" class="btn_adicionar_professor" onclick="cadastrar()">
+                </div>
+                <div class="boxTabela">
+                    <table class="tabela-turma">
+                        <tr>
+                            <th class="id">id</th>
+                            <th>Nome</th>
+                            <th>Ano</th>
+                            <th>Semestre</th>
+                            <th>Periodo</th>
+                            <th>Categoria</th>
+                        </tr>
+                        <%turmas.forEach(turma => {%>
+                            <tr class="turma">
+                                <td class="id"><%= turma.id%></td>
+                                <td class="nome"><%= turma.nome%></td>
+                                <td class="pilar"><%= turma.ano%></td>
+                                <td class="categoria"><%= turma.semestre%></td>
+                                <td class="categoria"><%= turma.periodo%></td>
+                                <td class="horas"><%= turma.pilar.categoria%></td>
+                                <td><a class="edita" href="">
+                                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                </a></td>
+                                <td><a class="remove" href="">
+                                    <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                                </a></td>
+                            </tr>
+                        <%}) %>
+                        
+                    </table>
+                </div>
+            </div>
+        </section>
+        <%- include('partials/turmas/modalCadastro')%>
+   
+</body>
+<script src="/js/modal.js"></script>
+</html>

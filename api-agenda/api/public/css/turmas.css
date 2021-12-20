@@ -1,0 +1,64 @@
+.conteudo{
+    width: calc(100% - 75px);
+    height: calc(100vh - 71px);
+    display: inline-block;
+}
+.container-conteudo{
+    margin-left: 80px;
+}
+
+.cabecariosecundario{
+    height: 54px;
+    width: 100%;
+    background: #EDEDED;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+    
+}
+.conteudo .cabecariosecundario input{
+    height: 37px;
+    width: 152px;
+    background: #008000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#boxTabela{
+    background-color: #EDEDED;
+    margin-right:50px;
+}
+table{
+    width: 100%;
+}
+th{
+    width: 250px; 
+}
+td{
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+th, td{
+    text-align: center;
+}
+table, th, td{
+    border-collapse: separate;
+    border-spacing:0 10px;
+}
+.id{
+    display: none;
+}
+
+/* remover / edita */
+.remove:visited{
+    color:red
+}
+
+.edita:visited{
+    color:rgb(47, 0, 255)
+}
+
+

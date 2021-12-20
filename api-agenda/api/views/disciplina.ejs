@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/disciplina.css">  
+    <link rel="stylesheet" href="/css/modais/modal_disciplina.css">
+</head>
+<body>
+        <header >
+            <%- include('partials/nav') %>
+        </header>
+        <section class="conteudo">
+            <div class="container-conteudo">
+                <div class="cabecariosecundario">
+                    <input type="button" value="Adicionar Disciplina" class="btn_adicionar_professor" onclick="cadastrar()">
+                </div>
+                <div class="boxTabela">
+                    <table class="tabela-disciplina">
+                        <tr>
+                            <th class="id">id</th>
+                            <th>Disciplina</th>
+                            <th>Pilar</th>
+                            <th>Categoria</th>
+                            <th>Carga Horária</th>
+                        </tr>
+                        <%disciplinas.forEach(disciplina => {%>
+                            <tr class="disciplina">
+                                <td class="id"><%= disciplina.id%></td>
+                                <td class="nome"><%= disciplina.name%></td>
+                                <td class="pilar"><%= disciplina.pilar.pilar%></td>
+                                <td class="categoria"><%= disciplina.pilar.categoria%></td>
+                                <td class="horas"><%= disciplina.horas%></td>
+                                <td><a class="edita" href="">
+                                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                </a></td>
+                                <td><a class="remove" href="">
+                                    <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                                </a></td>
+                            </tr>
+                        <%}) %>
+                        
+                    </table>
+                </div>
+            </div>
+        </section>
+        <%- include('partials/disciplina/modalCadastro')%>
+        
+</body>
+<script src="/js/modal.js"></script>   
+</html>
