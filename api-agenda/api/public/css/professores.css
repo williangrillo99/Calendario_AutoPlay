@@ -139,6 +139,12 @@ table, th, td{
     background-color: #FF7D69;
 }
 
+#alert{
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+}
+
 /* pesquisa */
 .removeProfessor{
     display: none;
@@ -205,9 +211,4 @@ table, th, td{
 }
 .bloco_excel:hover{
     background: #ececec;
-}
-#alert{
-    height: 100px;
-    margin: 10px;
-    padding: 10px;
 }
