@@ -14,10 +14,8 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      id_pilar: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model: "pilares", key: 'id'}
+      pilar: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
