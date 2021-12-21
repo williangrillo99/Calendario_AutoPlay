@@ -5,28 +5,62 @@
 }
 
 .container-conteudo{
-    margin-left: 80px;
+    margin: auto 55px;
+}
+/* pesquisa e adiciona */
+.container-pesquisar{   
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 10px;
+
+}
+
+#container-pesquisa-sala{
+    display: flex;
+    gap: 10px;
+}
+
+#inputsala{
+    background: #4052ab;
+ 
+    color: white;
+    font-size: 16px;
+}
+#inputsala:hover{
+    background: #6C7ECC;
+}
+.fa .fa-search{
+    position: relative;
+    padding: 10px;
+}
+.pesquisar-sala{
+    padding: 0 5px;
 }
 
 .cabecariosecundario{
     height: 54px;
-    width: 100%;
-    background: #EDEDED;
     align-items: center;
     display: flex;
-    border-bottom: 1px solid #cccccc;
-    
+    background: #ffffff;
+    justify-content: space-between;
+}
+
+input:focus{
+    outline: none;
+    border: 0;
 }
 .conteudo .cabecariosecundario input{
     height: 37px;
     width: 152px;
-    background: #008000;
-    color: white;
+    color: black;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
+
 .cabecarioatributos{
     background: #F6F6F6;
     width: 100%;

@@ -19,4 +19,8 @@ module.exports = app =>{
 
     const rotasEventos = require('./routerEventos')
     app.use('/', rotasEventos)
+
+    //rotas pilares para consumir no front
+    const rotasPilares = require('./routerPilares')
+    app.use('/pilares', rotasPilares)
 }

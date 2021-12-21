@@ -26,18 +26,7 @@
     align-items: center;
 }
 
-.pesquisar-professor{
-    padding-left:25px;
-}
-.container-pesquisar{
-    position: relative;
-}
 
-.fa-search{
-    position: absolute;
-    top:3px;
-    left: 5px;
-}
 .cabecario p{
     font-size: 24px;
     margin-left: 55px;
@@ -61,8 +50,11 @@
 .navegacao{
     float: left;
     width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: calc(100vh - 71px);
-    background: #003DA5;   
+    background: #4052ab;    
 }
 
 .logo{
@@ -72,6 +64,7 @@
 }
 
 .lista li{
+    width: 75px;
     margin: auto;
     text-align: center;
     padding: 20px;
@@ -79,7 +72,7 @@
 
 
 .navegacao li:hover{
-    background: black;
+    background: #6C7ECC
 }
 
 .conteudo{

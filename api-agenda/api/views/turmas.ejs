@@ -12,7 +12,13 @@
         <section class="conteudo">
             <div class="container-conteudo">
                 <div class="cabecariosecundario">
-                    <input type="button" value="Adicionar Turma" class="btn_adicionar_professor" onclick="cadastrar()">
+                    <div id="container-pesquisa-turmas">
+                        <input type="button" value="Adicionar turmas" class="btn_adicionar_turmas" id="inputturmas">
+                        <div class="container-pesquisar">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input class="pesquisar-turmas" placeholder="Pesquisar">
+                        </div>
+                    </div>
                 </div>
                 <div class="boxTabela">
                     <table class="tabela-turma">
@@ -22,16 +28,20 @@
                             <th>Ano</th>
                             <th>Semestre</th>
                             <th>Periodo</th>
+                            <th class="tdpilar">Pilar</th>
                             <th>Categoria</th>
+                            <th>N° Alunos</th>
                         </tr>
                         <%turmas.forEach(turma => {%>
                             <tr class="turma">
                                 <td class="id"><%= turma.id%></td>
                                 <td class="nome"><%= turma.nome%></td>
-                                <td class="pilar"><%= turma.ano%></td>
-                                <td class="categoria"><%= turma.semestre%></td>
-                                <td class="categoria"><%= turma.periodo%></td>
-                                <td class="horas"><%= turma.pilar.categoria%></td>
+                                <td class="ano"><%= turma.ano%></td>
+                                <td class="semestre"><%= turma.semestre%></td>
+                                <td class="periodo"><%= turma.periodo%></td>
+                                <td class="tdpilar"><%= turma.pilar.pilar%></td>
+                                <td class="categoria"><%= turma.pilar.categoria%></td>
+                                <td class="qtd_alunos"><%= turma.qtd_alunos%></td>
                                 <td><a class="edita" href="">
                                     <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                                 </a></td>
@@ -46,7 +56,11 @@
             </div>
         </section>
         <%- include('partials/turmas/modalCadastro')%>
-   
+        <%- include('partials/excluir') %>
 </body>
-<script src="/js/modal.js"></script>
+<script src="/js/turma/modalTurma.js"></script>
+<script src="/js/turma/adicionaTurma.js"></script>
+<script src="/js/turma/excluirTurma.js"></script>
+<script src="/js/turma/editaTurma.js"></script>
+<script src="/js/turma/validaFormulario.js"></script>
 </html>

@@ -53,6 +53,7 @@
     font-weight: bold;
 }
 #boxCadastro{
+    position: relative;
     background: white;
     width: 100%;
     height: 100%;
@@ -63,7 +64,7 @@
     width: 100%;
     background-color: #003DA5;
 }
-form p{
+form label{
     font-size: 14px;
     color: #242424;
     display: flex;
@@ -140,7 +141,7 @@ form p{
     padding: 10px 10px;
     font-size: 15px;
 }
-#SelectPilar{
+.SelectPilar{
     width: 127px;
     background: transparent;
     height: 39px;
@@ -186,4 +187,20 @@ form p{
     display: flex;
     flex-direction: column;
     margin: 5px;
+}
+
+/* mensagem de validação */
+
+.mensagens-validacao{
+    position: absolute;
+	left: 22%;
+    top:190px;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.removeErro{
+	transition: 3s;
+	opacity: 0;
 }

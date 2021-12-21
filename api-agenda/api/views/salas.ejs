@@ -12,7 +12,13 @@
         <section class="conteudo">
             <div class="container-conteudo">
                 <div class="cabecariosecundario">
-                    <input type="button" value="Adicionar Sala" class="btn_adicionar_professor" onclick="cadastrar()" disabled>
+                    <div id="container-pesquisa-sala">
+                        <input type="button" value="Adicionar sala" class="btn_adicionar_sala" id="inputsala">
+                        <div class="container-pesquisar">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input class="pesquisar-sala" placeholder="Pesquisar">
+                        </div>
+                    </div>
                 </div>
                 <div class="cabecarioatributos">
                     <% areas.forEach(area => {%>
@@ -42,5 +48,4 @@
         <%- include('partials/areas/modalCadastro')%>
    
 </body>
-<script src="/js/modal.js"></script>
 </html>

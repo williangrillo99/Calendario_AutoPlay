@@ -2,59 +2,71 @@
     width: calc(100% - 75px);
     height: calc(100vh - 71px);
     display: inline-block;
+    background: white;
 }
 .container-conteudo{
-    margin-left: 80px;
+    margin: auto 55px;
 }
-
 .cabecariosecundario{
     height: 54px;
-    background: #EDEDED;
     align-items: center;
     display: flex;
-    border-bottom: 1px solid #cccccc;
+    background: #ffffff;
+    justify-content: space-between;
 }
 
+input:focus{
+    outline: none;
+    border: 0;
+}
 .conteudo .cabecariosecundario input{
     height: 37px;
     width: 152px;
-    background-color: #008000;
-    color: white;
+    color: black;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
-.conteudo .cabecariosecundario input:hover{
-    background-color: green;
-}
+
 .cabecarioatributos{
-    background: #F6F6F6;
     width: 100%;
     height: 100vh;
     display: flex;
 }
   
-#boxTabela{
-    background-color: #EDEDED;
-    margin-right:50px;
+.boxTabela{
+    height:80vh;
+    overflow-y: scroll;
 }
 table{
     width: 100%;
 }
 th{
     width: 250px; 
+    color: rgb(0 0 0 / 50%);
+    font-weight: bolder;
+    
+}
+tr:hover{
+    background: #ececec;
 }
 td{
-    background-color: #FFFFFF;
+    color: #000000;
     padding: 10px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+   
 }
 th, td{
     text-align: center;
 }
 table, th, td{
     border-collapse: separate;
-    border-spacing:0 10px;
+    border-spacing:0 0px;
+}
+#atributos_Professor{
+    margin: 0 10px;
+    background: #ffffff;
 }
 
 .id{
@@ -82,20 +94,39 @@ table, th, td{
 .container-delete{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     width:400px;
-    height: 120px;
-    border-radius: 10px;
+    height: 330px;
+   
     background-color: rgb(255, 255, 255);
 }
-
+#bnt_excluir{
+    margin: 50px;
+    display: flex;
+    gap: 10px;
+}
 .informacao{
     font-size: 24px;
     margin-bottom: 20px;
 }
-
+#mensagemdeconfirmacao{
+    color: #808080;
+}
 .concluirDeletar{
-    background-color: #409ae1;
+    background-color: #20B528;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 190px;
+    height: 40px;
+}
+.concluirDeletar:hover{
+    background-color: #55D250;
+
+}
+.cancelarDeletar{
+    background-color: #FF4238;
     color: white;
     border: none;
     border-radius: 5px;
@@ -104,14 +135,8 @@ table, th, td{
     height: 40px;
 }
 
-.cancelarDeletar{
-    background-color: #ef6950;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 190px;
-    height: 40px;
+.cancelarDeletar:hover{
+    background-color: #FF7D69;
 }
 
 /* pesquisa */
@@ -127,8 +152,62 @@ table, th, td{
 .edita:visited{
     color:rgb(47, 0, 255)
 }
+.bloco_excel{
+    display: flex;
+    align-items: center;
+    background: #c7c7c7;
+
+    border-radius: 5px;
 
 
+}
+#botaoexcel{
+    background:  none;
+    color: black;
+    margin: 0;
+    width: 80px;
+    font-weight: bolder;
+    
+}
+#imagemexcel{
+    height: 37px;
+}
+.container-pesquisar{   
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 10px;
 
+}
 
+#container-pesquisa-professor{
+    display: flex;
+    gap: 10px;
+}
 
+#inputprofessor{
+    background: #4052ab;
+ 
+    color: white;
+    font-size: 16px;
+}
+#inputprofessor:hover{
+    background: #6C7ECC;
+}
+.fa .fa-search{
+    position: relative;
+    padding: 10px;
+}
+.pesquisar-professor{
+    padding: 0 5px;
+}
+.bloco_excel:hover{
+    background: #ececec;
+}
+#alert{
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+}

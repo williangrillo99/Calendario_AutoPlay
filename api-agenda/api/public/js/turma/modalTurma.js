@@ -1,14 +1,14 @@
 let modal = document.querySelector('.body')
-let botaoAbrir = document.querySelector('.btn_adicionar_professor')
+let botaoAbrir = document.querySelector('.btn_adicionar_turmas')
 
 botaoAbrir.addEventListener('click', () =>{
-    let form = document.querySelector('.form');
-    form.action = '/professores/cadastro'
+    let form = document.querySelector('form');
+    form.action = '/turmas/cadastro'
 
     modal.style.display = 'flex';
-    
+    document.querySelector('.titulo').textContent = "Adicionar Turma"
     form.reset()
-    document.querySelector('.titulo').textContent = "Adicionar Professor"
+    
 })
 
 function fechar(){

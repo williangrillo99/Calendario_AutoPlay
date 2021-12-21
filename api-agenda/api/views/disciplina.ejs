@@ -12,7 +12,13 @@
         <section class="conteudo">
             <div class="container-conteudo">
                 <div class="cabecariosecundario">
-                    <input type="button" value="Adicionar Disciplina" class="btn_adicionar_professor" onclick="cadastrar()">
+                    <div id="container-pesquisa-disciplina">
+                        <input type="button" value="Adicionar disciplina" class="btn_adicionar_disciplina" id="inputdisciplina">
+                        <div class="container-pesquisar">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input class="pesquisar-disciplina" placeholder="Pesquisar">
+                        </div>
+                    </div>
                 </div>
                 <div class="boxTabela">
                     <table class="tabela-disciplina">
@@ -44,5 +50,4 @@
         <%- include('partials/disciplina/modalCadastro')%>
         
 </body>
-<script src="/js/modal.js"></script>   
 </html>

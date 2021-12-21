@@ -20,13 +20,7 @@ botaoAdiciona.addEventListener('click', (event) => {
         return;
     }
 
-    botaoAdiciona.addEventListener('click', ()=>{
-      let teste = form.submit();
-      console.log(teste);
-    })
-
-
-
+    form.submit();
     
 })
 

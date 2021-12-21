@@ -3,28 +3,61 @@
     height: calc(100vh - 71px);
     display: inline-block;
 }
+
 .container-conteudo{
-    margin-left: 80px;
+    margin: auto 55px;
+}
+/* pesquisa e adiciona */
+.container-pesquisar{   
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+#container-pesquisa-turmas{
+    display: flex;
+    gap: 10px;
+}
+
+#inputturmas{
+    background: #4052ab;
+ 
+    color: white;
+    font-size: 16px;
+}
+#inputturmas:hover{
+    background: #6C7ECC;
+}
+.fa .fa-search{
+    position: relative;
+    padding: 10px;
+}
+.pesquisar-turmas{
+    padding: 0 5px;
 }
 
 .cabecariosecundario{
     height: 54px;
-    width: 100%;
-    background: #EDEDED;
     align-items: center;
     display: flex;
-    border-bottom: 1px solid #cccccc;
-    
+    background: #ffffff;
+    justify-content: space-between;
+}
+
+input:focus{
+    outline: none;
+    border: 0;
 }
 .conteudo .cabecariosecundario input{
     height: 37px;
     width: 152px;
-    background: #008000;
-    color: white;
+    color: black;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 #boxTabela{
@@ -48,8 +81,79 @@ table, th, td{
     border-collapse: separate;
     border-spacing:0 10px;
 }
-.id{
+.id, .tdpilar{
     display: none;
+}
+
+/* confirmação de exclusão */
+
+.delete{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.6);
+    height: 100vh;
+    width: 100vw;
+}
+
+.container-delete{
+    display: flex;
+    flex-direction: column;
+
+    width:400px;
+    height: 330px;
+   
+    background-color: rgb(255, 255, 255);
+}
+#bnt_excluir{
+    margin: 50px;
+    display: flex;
+    gap: 10px;
+}
+.informacao{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+#mensagemdeconfirmacao{
+    color: #808080;
+}
+.concluirDeletar{
+    background-color: #20B528;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 190px;
+    height: 40px;
+}
+.concluirDeletar:hover{
+    background-color: #55D250;
+
+}
+.cancelarDeletar{
+    background-color: #FF4238;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 190px;
+    height: 40px;
+}
+
+.cancelarDeletar:hover{
+    background-color: #FF7D69;
+}
+
+#alert{
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
 }
 
 /* remover / edita */
