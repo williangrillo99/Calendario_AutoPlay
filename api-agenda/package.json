@@ -1,6 +1,7 @@
 {
   "name": "api-agenda",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,6 +21,5 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.12.1",
     "sequelize-cli": "^6.3.0"
-  },
-  "description": ""
+  }
 }
