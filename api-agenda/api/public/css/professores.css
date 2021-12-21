@@ -201,6 +201,7 @@ table, th, td{
 }
 #inputprofessor:hover{
     background: #6C7ECC;
+    cursor: pointer;
 }
 .fa .fa-search{
     position: relative;

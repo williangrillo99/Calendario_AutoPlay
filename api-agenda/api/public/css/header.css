@@ -67,7 +67,7 @@
     width: 75px;
     margin: auto;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0px;
 }
 
 
@@ -76,5 +76,4 @@
 }
 
 .conteudo{
-    background-color: #EDEDED;
 }

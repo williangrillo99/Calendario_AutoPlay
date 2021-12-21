@@ -31,6 +31,7 @@
 }
 #inputagenda:hover{
     background: #6C7ECC;
+    cursor: pointer;
 }
 .fa .fa-search{
     position: relative;
@@ -102,7 +103,6 @@ input:focus{
     border-radius: 5px;
     height: 35px;
     margin-right: 10px;
-    margin-left: 8px;
 }
 
 .turmas {
