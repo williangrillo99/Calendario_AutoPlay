@@ -20,6 +20,23 @@ class DisciplinaController {
         }
     }
 
+    static async atualizar(infoDisciplina){
+        return await modelos.disciplinas.update(
+            infoDisciplina,
+            {
+                where: {id: infoDisciplina.id}
+            }
+        ) 
+    }
+
+    static async deletar(id){
+        return await modelos.disciplinas.destroy(
+            {
+                where: {id: id}
+            }
+        )
+    }
+
     static async pegaIdDisciplina(nome){
         const disciplina = await modelos.disciplinas.findOne({
             where: {name: {[Op.like]: nome}}

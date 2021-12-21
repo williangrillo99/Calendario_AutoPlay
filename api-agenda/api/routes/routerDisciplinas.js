@@ -25,5 +25,18 @@ rotasDisciplinas.post('/cadastro', async (req, res) =>{
     res.json(turma)
 })
 
+rotasDisciplinas.post('/atualizar/:idDisciplina', async (req, res)=>{
+    const id = req.params.idDisciplina
+    const informacoesAtualizadas = req.body
+    await DisciplinaController.atualizar({...informacoesAtualizadas, id:id})
+    res.redirect('/disciplinas')
+})
+
+rotasDisciplinas.get('/deletar/:idDisciplina', async (req, res) => {
+    const id = req.params.idDisciplina;
+    await DisciplinaController.deletar(id);
+    res.redirect('/disciplinas')
+})
+
 
 module.exports = rotasDisciplinas;
