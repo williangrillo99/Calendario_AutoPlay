@@ -15,7 +15,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       pilar: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
