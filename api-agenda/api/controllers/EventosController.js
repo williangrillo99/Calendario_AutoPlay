@@ -6,7 +6,6 @@ const ReservaController = require('./ReservaController')
 const UsuarioController = require('./UsuarioController')
 const TurmaController = require('./TurmaController')
 const DisciplinaController = require('./DisciplinaController')
-const AreasController = require('./AreasController')
 
 class EventosController{
     static async criar(infoEvento){
@@ -122,6 +121,19 @@ class EventosController{
         } catch (error) {
             throw new Error(error.message)
         }
+    }
+
+    static dataFormatada(){
+        let now = new Date();
+        let dayName = new Array ("Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado");
+        let monName = new Array ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+
+        var dia = dayName[now.getDay()];
+        var data = now.getDate();
+        var mes = monName[now.getMonth()];
+        var ano = now.getFullYear();
+
+        return `${dia}, ${data} de ${mes} de ${ano}`
     }
 }
 
