@@ -64,7 +64,7 @@
 }
 
 .lista li{
-    width: 75px;
+    width: 35px;
     margin: auto;
     text-align: center;
     padding: 20px;
@@ -73,8 +73,4 @@
 
 .navegacao li:hover{
     background: #6C7ECC
-}
-
-.conteudo{
-    background-color: #EDEDED;
 }
