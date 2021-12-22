@@ -1,5 +1,5 @@
 .body{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -21,7 +21,6 @@
     flex-direction: column;
     background: white;
     border-radius: 10px;
-    height: 475px;
     width: 350px;
     border: solid 1px #b1b1b1;
     padding: 35px;
