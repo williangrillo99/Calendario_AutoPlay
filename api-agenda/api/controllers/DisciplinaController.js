@@ -37,13 +37,13 @@ class DisciplinaController {
         )
     }
 
-    static async pegaIdDisciplina(nome){
+    static async pegaIdDisciplina(id){
         const disciplina = await modelos.disciplinas.findOne({
-            where: {name: {[Op.like]: nome}}
+            where: {id: id}
         })
 
         if(!disciplina){
-            throw new Error(`disciplina ${nome} não encontrado!`)
+            throw new Error(`disciplina ${id} não encontrado!`)
         }
         return disciplina;
     }

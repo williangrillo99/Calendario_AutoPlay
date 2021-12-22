@@ -25,13 +25,13 @@ class AreasController{
         }
     }   
 
-    static async pegaIdLocal(nome){
+    static async pegaIdLocal(id){
         const local = await modelos.locais.findOne({
-            where: {nome: {[Op.like]: nome}}
+            where: {id: id}
         })
 
         if(!local){
-            throw new Error(`local ${nome} não encontrado!`)
+            throw new Error(`local ${id} não encontrado!`)
         }
         return local;
     }
