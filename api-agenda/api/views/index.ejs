@@ -27,10 +27,14 @@
             <div class="fundo">         
                 <div id="data"></div>
                 <div class="turmas">
+                    <div id="divisaoSalas">
+                        <%salas.forEach(sala =>{%>
+                        <div class="nomeSala"><%= sala.nome%></div>
+                        <% }) %>
+                    </div>
                     <div id="painelGeral">
                         <%salas.forEach(sala =>{%>
                             <div class="painelTurmas">
-                                <p class="titulo"><%= sala.nome%></p>
                                 <%eventos.forEach(evento =>{%>
                                     <% if(evento.sala_id == sala.id){%>
                                         <div class="salas" id="sala1">
@@ -47,6 +51,7 @@
                                 <%})%>
                             </div>
                         <% }) %>
+                        
                     </div>   
                 </div>
             </div>

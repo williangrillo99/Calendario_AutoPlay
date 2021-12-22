@@ -9,7 +9,7 @@
   },
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "Autoglass@2020",
     "database": "agendacec",
     "host": "localhost",
     "dialect": "mysql",

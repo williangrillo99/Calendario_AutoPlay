@@ -5,7 +5,7 @@
 }
 
 .container-conteudo{
-    margin: auto 55px;
+    margin: auto 0px auto 55px;
 }
 
 /* pesquisa e adiciona */
@@ -61,78 +61,107 @@ input:focus{
     border-radius: 5px;
 }
 
-.turmas{
-    margin-right: 50px;
-    margin-top: 10px;
-    padding: 5px;
-    background: #e8eaf6;
-    border-radius: 5px;
-    cursor: pointer;
-    overflow: auto;
-    max-height: 500px;
-}
-
-.fundo{
-    background: #e8eaf6;
-    height: 100%;
-    width: 100%;
-}
-
-#quantidade {
-    text-align: center;
-    margin-left: 4px;
+#quantidadeAlunos {
     height: 37px;
-    width: 152px;
-    background: #006064;
+    width: 180px;
+    background: #3f51b5;
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 5px;
+    position: absolute;
+    right: 130px;
+    text-align: center;
+}
+
+#quantidadeTurmas {
+    height: 37px;
+    width: 180px;
+    background: #3f51b5;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 330px;
+    text-align: center;
+}
+
+#fundo{
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
 }
 
 #data {
+    background: #183884;
+    color: #ffffff;
     font-weight: bold;
     font-size: 24px;
+    text-align: center;
+    border-radius: 5px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 8px;
+}
+
+.turmas {
+    max-height: 73vh;
+    overflow: auto;
+    margin-right: 10px;
 }
 
 #painelGeral {
     display: flex;
+    margin-top: 10px;
+}
+
+#divisaoSalas {
+    display: flex;
+    padding-top: 10px;
+}
+
+.nomeSala {
+    background: #183884;
+    color: #ffffff;
+    max-width: 232px;
+    min-width: 232px;
+    height: 25px;
+    margin-left: 8px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .painelTurmas {
-    background: #e8f5e9;
-    max-width: 220px;
-    min-width: 220px;
-    padding: 10px;
-    margin-top: 10px;
+    background: #e0e0e0;
+    max-width: 240px;
+    min-width: 240px;
     margin-left: 8px;
     border-radius: 5px;
     border: 1px #c5cae9 solid;
+    cursor: pointer;
 }
 
 .salas {
     background: #ffffff;
-    margin-top: 10px;
     height: 150px;
     font-size: 16px;
     padding: 5px;
     border-radius: 5px;
     color: #212121;
+    margin: 5px;
 }
 
 .painelTurmas .titulo {
     font-weight: bold;
     color: #212121;
-}
-
-.painelTurmas .operacional {
-    width: 130px;
+    background: #81c784;
     border-radius: 5px;
-    color: #212121;
 }
 
 .imagem {
-    width: 20px;
+    width: 25px;
 }
 
 .imgprofessor {
@@ -141,4 +170,29 @@ input:focus{
 
 .imgprofessor img {
     padding-right: 6px;
+}
+
+.turmasFull {
+    height: 100vh;
+    margin-right: 10px;
+}
+
+.painelTurmasFull {
+    background: #e0e0e0;
+    max-width: 150px;
+    min-width: 150px;
+    margin-left: 8px;
+    border-radius: 5px;
+    border: 1px #c5cae9 solid;
+    cursor: pointer;
+}
+
+.salasFull {
+    background: #ffffff;
+    height: 170px;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #212121;
+    margin: 5px;
 }
