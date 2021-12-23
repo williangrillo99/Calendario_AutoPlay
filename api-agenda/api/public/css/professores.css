@@ -162,10 +162,7 @@ table, th, td{
     display: flex;
     align-items: center;
     background: #c7c7c7;
-
     border-radius: 5px;
-
-
 }
 #botaoexcel{
     background:  none;
@@ -173,6 +170,7 @@ table, th, td{
     margin: 0;
     width: 80px;
     font-weight: bolder;
+    cursor: pointer;
     
 }
 #imagemexcel{
@@ -201,6 +199,7 @@ table, th, td{
 }
 #inputprofessor:hover{
     background: #6C7ECC;
+    cursor: pointer;
 }
 .fa .fa-search{
     position: relative;

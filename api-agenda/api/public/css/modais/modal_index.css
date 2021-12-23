@@ -21,7 +21,7 @@
     flex-direction: column;
     background: white;
     border-radius: 10px;
-    height: 450px;
+    height: 475px;
     width: 350px;
     border: solid 1px #b1b1b1;
     padding: 35px;
@@ -59,12 +59,8 @@
     height: 100%;
     flex-direction: column;
 }
-.linha{
-    height: 1px;
-    width: 100%;
-    background-color: #003DA5;
-}
-form label{
+
+form label, h3{
     font-size: 14px;
     color: #242424;
     display: flex;
@@ -73,16 +69,24 @@ form label{
     padding: 2px;
 }
 .botao{
-    background: transparent;
+    
     height: 38px;
     width: 50px;
     border-radius: 5px;
     border: solid 1px #CCCCCC;
     padding: 0px 10px;
-}
-.botao:focus{
+}.botao:focus{
     border: solid 1px #CCCCCC;
-    outline: 0;
+}
+.data{
+   
+    height: 38px;
+    border-radius: 5px;
+    border: solid 1px #CCCCCC;
+    padding: 0px 10px;
+}
+.data:focus{
+    border: solid 1px #CCCCCC;
 }
 .boxCredenciais {
     display: flex;
@@ -93,7 +97,7 @@ form label{
     padding-top: 25px;
 }
 #boxAno{
-    padding-top: 10px;
+   
     display: flex;
     flex-direction: row;  
     gap: 2px;
@@ -113,9 +117,9 @@ form label{
     cursor: pointer;
     width: 150px;
     height: 40px;
-}
-#botaoConcluir:hover{
-    background-color: #55D250;
+}#botaoConcluir:hover{
+    background: #55D250;
+
 }
 #NomeSala{
     background: transparent;
@@ -134,9 +138,20 @@ form label{
     padding: 0px 10px;
 }
 .boxNomeeSistema{
+    border-top: 1px solid #003DA5;
     display: flex;
+    flex-direction: column;
     margin: 5px;
-    justify-content: space-between;
+    
+}.inputradios{
+    display: flex;
+    gap: 30px;
+}
+
+.estiloradios{
+    align-items: center;
+    display: flex; 
+    
 }
 #descrição{
     background: transparent;
@@ -171,12 +186,10 @@ form label{
     cursor: pointer;
     width: 150px;
     height: 40px;
-
-}#botaoCancelar:hover{
+}
+#botaoCancelar:hover{
     background-color: #FF7D69;
 }
-
-
 #SelectSemestre{
     background: transparent;
     height: 40px;
@@ -189,12 +202,26 @@ form label{
     display: flex;
     flex-direction: column;
 }
-#boxCapacidade{
-    display: flex;
-    margin: 5px;
-    justify-content: space-between;
 
+.resposavel{
+    display: flex;
+    margin-top: 10px;
+  
 }
+.btn_select{
+    width: 161px;
+    height: 38px;
+    margin: 5px;
+    border-radius: 5px;
+    border: solid 1px #CCCCCC;
+   
+}.btn_select:focus{
+    border: solid 1px #CCCCCC;
+    outline: 0;
+}.local{
+    display: flex;
+}
+
 #Quant{
     display: flex;
     flex-direction: column;

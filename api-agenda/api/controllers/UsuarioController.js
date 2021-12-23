@@ -32,13 +32,13 @@ class UsuarioController{
         )
     }
 
-    static async pegaIdProfessor(nome){
+    static async pegaIdProfessor(id){
         const professor = await modelos.usuarios.findOne({
-            where: {abreviacao: {[Op.like]: nome}}
+            where: {id:  id}
         })
 
         if(!professor){
-            throw new Error(`Professor ${nome} não encontrado!`)
+            throw new Error(`Professor ${id} não encontrado!`)
         }
         return professor;
     }

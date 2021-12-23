@@ -10,22 +10,21 @@ const AreasController = require('./AreasController')
 
 class EventosController{
     static async criar(infoEvento){
-                 
+        console.log(infoEvento);
         try {
             let data = infoEvento.data
             infoEvento.horario_inicio = data+" "+infoEvento.horario_inicio
             infoEvento.horario_fim = data+" "+infoEvento.horario_fim
 
-            //pega id professor
-            const professor = await UsuarioController.pegaIdProfessor(infoEvento.id_usuario.toLowerCase());
-            const turma = await TurmaController.pegaIdTurma(infoEvento.id_turma.toLowerCase());
-            const disciplina = await DisciplinaController.pegaIdDisciplina(infoEvento.id_disciplina.toLowerCase());
-            const local = await AreasController.pegaIdLocal(infoEvento.id_local.toLowerCase());
+            //pega tuplas relativas
+            const professor = await UsuarioController.pegaIdProfessor(infoEvento.id_usuario);
+            const turma = await TurmaController.pegaIdTurma(infoEvento.id_turma);
+            const disciplina = await DisciplinaController.pegaIdDisciplina(infoEvento.id_disciplina);
 
-            infoEvento.id_usuario = professor.id
-            infoEvento.id_turma = turma.id
-            infoEvento.id_disciplina = disciplina.id
-            infoEvento.id_local = local.id
+            // infoEvento.id_usuario = professor.id
+            // infoEvento.id_turma = turma.id
+            // infoEvento.id_disciplina = disciplina.id
+            // infoEvento.id_local = local.id
 
             const verificaProfessor = await modelos.eventos.findOne({
                 where: {

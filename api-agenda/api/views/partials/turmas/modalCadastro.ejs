@@ -44,7 +44,7 @@
                     <div class="pilar">
                         <label for="pilar">Pilar</label>
                             <select class="botao SelectPilar" id="pilar">
-                                <option select>Selecione</option>
+                                <option disabled selected hidden>Selecione</option>
                                 <%pilares.forEach(pilar =>{%>
                                     <option value=<%=pilar.pilar%> ><%=pilar.pilar%></option>
                                 <%})%>  
@@ -62,11 +62,13 @@
                 </div>
                 <div class="BotaoConcluireCancelar" id="boxConcluir">
                     <div>
-                        <input type="submit" id="botaoConcluir" value="Concluir">                      
-                    </div>
-                    <div>
                         <input type="button" id="botaoCancelar" value="Cancelar">                      
                     </div>
+                    
+                    <div>
+                        <input type="submit" id="botaoConcluir" value="Concluir">                      
+                    </div>
+                    
                 </div>
             </form>
         </div>

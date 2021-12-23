@@ -15,8 +15,7 @@ rotasTurmas.get('/', async (req, res)=>{
     res.render('../api/views/turmas', {
         title: 'Turmas',
         turmas: turmas,
-        pilares: pilares,
-        categorias: categorias
+        pilares: pilares
     })
 })
 

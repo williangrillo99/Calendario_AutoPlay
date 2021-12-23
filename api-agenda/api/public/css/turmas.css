@@ -16,7 +16,23 @@
     text-align: center;
     padding: 0 10px;
 }
-
+.bloco_excel{
+    display: flex;
+    align-items: center;
+    background: #c7c7c7;
+    border-radius: 5px;
+}
+#imagemexcel{
+    height: 37px;
+}
+#botaoexcel{
+    background:  none;
+    color: black;
+    margin: 0;
+    width: 80px;
+    font-weight: bolder;
+    cursor: pointer;
+}
 #container-pesquisa-turmas{
     display: flex;
     gap: 10px;
@@ -30,6 +46,7 @@
 }
 #inputturmas:hover{
     background: #6C7ECC;
+    cursor: pointer;
 }
 .fa .fa-search{
     position: relative;
@@ -59,32 +76,50 @@ input:focus{
     border: none;
     border-radius: 5px;
 }
+.titulosatributos:hover{
+    background: #ffffff;
+}
 
-#boxTabela{
-    background-color: #EDEDED;
-    margin-right:50px;
+.boxTabela{
+   
+    height: 80vh;
+    overflow-y: scroll
+   
 }
 table{
     width: 100%;
 }
 th{
     width: 250px; 
+    color: rgb(0 0 0 / 50%);
+    font-weight: bolder;
 }
 td{
-    background-color: #FFFFFF;
+    color: #000000;
     padding: 10px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
 }
 th, td{
     text-align: center;
 }
 table, th, td{
     border-collapse: separate;
-    border-spacing:0 10px;
+    border-spacing:0 0px;
 }
 .id, .tdpilar{
     display: none;
 }
-
+td{
+    color: #000000;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+   
+}
+tr:hover{
+    background: #ececec;
+}
 /* confirmação de exclusão */
 
 .delete{

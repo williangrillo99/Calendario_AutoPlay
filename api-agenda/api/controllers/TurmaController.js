@@ -41,14 +41,14 @@ class TurmaController {
         )
     }
 
-    static async pegaIdTurma(nome){
+    static async pegaIdTurma(id){
         const turma = await modelos.turmas.findOne({
-            where: {nome: {[Op.like]: nome}},
+            where: {id: id},
             include: {model: modelos.pilares, as: 'pilar'}
         })
 
         if(!turma){
-            throw new Error(`turma ${nome} não encontrado!`)
+            throw new Error(`turma ${id} não encontrado!`)
         }
         return turma;
     }

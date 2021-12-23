@@ -67,14 +67,10 @@
     width: 75px;
     margin: auto;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0px;
 }
 
 
 .navegacao li:hover{
     background: #6C7ECC
-}
-
-.conteudo{
-    background-color: #EDEDED;
 }
