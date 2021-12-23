@@ -11,6 +11,14 @@
     background-color: rgba(0,0,0,0.6);
     height: 100vh;
     width: 100vw;
+}input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
 }
 .modal{
     position: absolute;
@@ -81,6 +89,19 @@ form p{
 .botao:focus{
     outline: 0;
 }
+.boxinputs{
+    display: flex;
+    flex-direction: column;
+}
+
+input:focus{
+    outline: none;
+    border: 1px solid #cccccc;
+}
+label{
+    justify-content: start;
+    display: flex;
+}
 .boxCredenciais {
     display: flex;
     margin: 5px;
@@ -102,12 +123,54 @@ form p{
     align-items: center;
     padding-top: 40px;
 }
-#botaoConcluir{
-    background-color: #003DA5;
+.botaoConcluir{
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: 180px;
     height: 40px;
+}
+.box_concluirecancelar{
+    display: flex;
+    gap: 20px;
+    
+
+}
+#concluir{
+    background-color: #20B528;
+}
+#concluir:hover{
+    background: #55D250;
+}
+#cancelar{
+    background-color: #FF4238;
+}
+#cancelar:hover{
+    background: #FF7D69;
+}
+#inputdescricao{
+
+    background: transparent;
+    height: 80px;
+    width: 365px;
+    border-radius: 5px;
+    border: solid 1px #CCCCCC;
+    padding: 10px;
+    font-size: 15px;
+}
+#select{
+    width: 122px;
+    background: transparent;
+    height: 39px;
+    border-radius: 5px;
+    border: solid 1px #CCCCCC;
+    padding: 0px 10px;
+}
+#select:focus{
+    outline: none;
+    border: 1px solid #cccccc;
+}
+#cargahoraria{
+    width: 60px;
 }
