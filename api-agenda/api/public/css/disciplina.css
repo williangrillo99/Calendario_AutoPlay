@@ -88,21 +88,34 @@ table{
 }
 th{
     width: 250px; 
+    color: rgb(0 0 0 / 50%);
+    font-weight: bolder;
 }
 td{
-    background-color: #FFFFFF;
+    color: #000000;
     padding: 10px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
 }
 th, td{
     text-align: center;
 }
 table, th, td{
     border-collapse: separate;
-    border-spacing:0 10px;
+    border-spacing:0 0px;
 }
-
-.id{
+.id, .tdpilar{
     display: none;
+}
+td{
+    color: #000000;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+   
+}
+tr:hover{
+    background: #ececec;
 }
 
 /* remover / edita */
