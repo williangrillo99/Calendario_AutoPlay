@@ -21,13 +21,14 @@
                         <input class="pesquisar-agenda" placeholder="Pesquisar">
                     </div>
                 </div>
-            </div>
-
-            <div class="fundo">        
+                <%- include('partials/index/formData')%>
+            </div>       
+                
+            <div class="fundo">  
                 <div id="full">
-                    <p id="data"></p>
-                        <button><i class="fa fa-arrows-alt" aria-hidden="true" onclick="AtivarDesativarFS()"></i></button>
-                </div>
+                    <p id="data"><%=data%></p>
+                    <button><i class="fa fa-arrows-alt" aria-hidden="true" onclick="AtivarDesativarFS()"></i></button>
+                </div>       
                 <div class="turmas">
                     <div id="divisaoSalas">
                         <%salas.forEach(sala =>{%>
@@ -61,7 +62,6 @@
     </section>
     <%- include('partials/index/modalCadastro')%>
 </body>
-<script src="/js/inicio/index.js"></script>
 <script src="/js/inicio/indexFullScreem.js"></script>
 <script src="/js/index/modalReserva.js"></script>
 </body>
