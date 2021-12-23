@@ -6,12 +6,16 @@ const DisciplinaController = require('../controllers/DisciplinaController')
 const TurmaController = require('../controllers/TurmaController')
 
 rotasEventos.get('/', async (req, res) =>{
-    const eventos = await EventosController.listar()
+    const dataEnviada = req.query.data
+    console.log(dataEnviada);
+    const eventos = await EventosController.listar(dataEnviada)
     const areas = await AreasController.listar()
     const professores = await UsuarioController.listar()
     const disciplinas = await DisciplinaController.listar()
     const turmas = await TurmaController.listar()
-    const data = await EventosController.dataFormatada()
+
+    
+    const data = await EventosController.dataFormatada(dataEnviada)
 
     if(!eventos){
         res.json({erro: eventos.message})

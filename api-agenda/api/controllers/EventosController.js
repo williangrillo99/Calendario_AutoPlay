@@ -9,7 +9,6 @@ const DisciplinaController = require('./DisciplinaController')
 
 class EventosController{
     static async criar(infoEvento){
-        console.log(infoEvento);
         try {
             let data = infoEvento.data
             infoEvento.horario_inicio = data+" "+infoEvento.horario_inicio
@@ -72,12 +71,13 @@ class EventosController{
         }
     }
     
-    static async listar(){
+    static async listar(data){
         const arrayEventos = []
-        
+        if(!data) data = new Date();
+
         try {
             const eventos = await modelos.eventos.findAll({
-                where: {data: new Date()},
+                where: {data: new Date(data)},
                 attributes: { exclude: ['id_local','id_turma','id_usuario', 'id_disciplina'] },
                 include: [
                     {model: modelos.turmas, as: 'turma'},
@@ -123,8 +123,9 @@ class EventosController{
         }
     }
 
-    static dataFormatada(){
-        let now = new Date();
+    static dataFormatada(novaDate){
+        if(!novaDate) novaDate = new Date();
+        let now = new Date(novaDate);
         let dayName = new Array ("Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado");
         let monName = new Array ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 
