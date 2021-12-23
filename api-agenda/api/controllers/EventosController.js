@@ -73,11 +73,17 @@ class EventosController{
     
     static async listar(data){
         const arrayEventos = []
-        if(!data) data = new Date();
+        if(!data){
+            data = new Date();
+        }else{
+            data = new Date(data)
+            data.setDate(data.getDate()+1)
+        } 
 
+        console.log(data);
         try {
             const eventos = await modelos.eventos.findAll({
-                where: {data: new Date(data)},
+                where: {data: data},
                 attributes: { exclude: ['id_local','id_turma','id_usuario', 'id_disciplina'] },
                 include: [
                     {model: modelos.turmas, as: 'turma'},
@@ -124,8 +130,14 @@ class EventosController{
     }
 
     static dataFormatada(novaDate){
-        if(!novaDate) novaDate = new Date();
-        let now = new Date(novaDate);
+        if(!novaDate){
+            novaDate = new Date();
+        }else{
+            novaDate = new Date(novaDate)
+            novaDate.setDate(novaDate.getDate()+1)
+        } 
+        
+        let now = novaDate;
         let dayName = new Array ("Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado");
         let monName = new Array ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 
