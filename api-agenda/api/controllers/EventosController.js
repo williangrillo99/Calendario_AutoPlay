@@ -1,4 +1,4 @@
-const modelos = require('../models')
+    const modelos = require('../models')
 const { Op } = require('sequelize');
 
 //importando controllers
