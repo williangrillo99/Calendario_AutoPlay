@@ -16,7 +16,24 @@
     padding: 0 10px;
 
 }
-
+.bloco_excel{
+    display: flex;
+    align-items: center;
+    background: #c7c7c7;
+    border-radius: 5px;
+}
+#botaoexcel{
+    background:  none;
+    color: black;
+    margin: 0;
+    width: 80px;
+    font-weight: bolder;
+    cursor: pointer;
+    
+}
+#imagemexcel{
+    height: 37px;
+}
 #container-pesquisa-disciplina{
     display: flex;
     gap: 10px;
