@@ -7,40 +7,39 @@
                     
                     <form>
                         <div class="boxCredenciais" id="boxNomeCompleto">
-                            <p>Nome Completo</p>
+                            <label>Nome</label>
                             <input type="text" class="botao">
                         </div>
         
                         <div class="boxCredenciais" id="boxNumeroApelido">
-                            <div>
-                                <p>Contato</p>
-                                <input type="text" class="botao">
+                            <div class="boxinputs">
+                                <label>Pilar</label>
+                                <select id="select">
+                                    <option>Ti</option>
+                                    <option>Area</option>
+                                </select>
                             </div>
-                            <div>
-                                <p>Apelido</p>
-                                <input type="text" class="botao">
-                            </div>   
-                        </div>
-        
-                        <div class="boxCredenciais" id="boxCargoArea">
-                            <div>
-                                <p>Cargo</p>
-                                <input type="text" class="botao">
-                            </div>
-                            <div>
-                                <p>Área</p>
-                                <input type="text" class="botao">
+                            <div class="boxinputs">
+                                <label>Carga horária</label>
+                                <input type="number" class="botao" id="cargahoraria">
                             </div>   
                         </div>
         
                         <div class="boxCredenciais" id="boxEmail">
-                            <p>E-mail</p>
-                            <input type="email" class="botao">
+                            <label>Descrição</label>
+                            <!-- <input type="text" id="inputdescricao" class="botao"> -->
+                            <textarea id="inputdescricao" class="botao" type="text"></textarea>
                         </div>
-        
-                        <div class="boxCredenciais" id="boxConcluir">
-                            <input type="submit" id="botaoConcluir" value="Concluir">
+                        <div class="box_concluirecancelar">
+                            <div class="boxCredenciais" id="boxConcluir">
+                                <input type="submit" id="cancelar"class="botaoConcluir" value="Cancelar">
+                            </div>
+                            <div class="boxCredenciais" id="boxConcluir">
+                                <input type="submit" id="concluir"class="botaoConcluir" value="Concluir">
+                            </div>
+
                         </div>
+                        
                     </form>
                 </div>
             </div>    
