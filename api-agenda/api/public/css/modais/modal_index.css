@@ -59,12 +59,8 @@
     height: 100%;
     flex-direction: column;
 }
-.linha{
-    height: 1px;
-    width: 100%;
-    background-color: #003DA5;
-}
-form label{
+
+form label, h3{
     font-size: 14px;
     color: #242424;
     display: flex;
@@ -142,6 +138,7 @@ form label{
     padding: 0px 10px;
 }
 .boxNomeeSistema{
+    border-top: 1px solid #003DA5;
     display: flex;
     flex-direction: column;
     margin: 5px;
@@ -205,13 +202,7 @@ form label{
     display: flex;
     flex-direction: column;
 }
-#boxCapacidade{
-    display: flex;
-    margin: 5px;
-    justify-content: start;
-    gap: 10px;
 
-}
 .resposavel{
     display: flex;
     margin-top: 10px;

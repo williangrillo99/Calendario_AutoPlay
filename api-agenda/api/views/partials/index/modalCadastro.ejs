@@ -6,65 +6,65 @@
                 <ul class="mensagem"></ul>
             </div>
             <h1 class="titulo">Reservar Sala</h1>
-            <div class="linha"></div>
             
-            <form>
+            <form method="POST" action="/cadastro">
                
                 <div class="boxNomeeSistema" id="boxNomeCompleto">
-                    <label>Tipo de Evento</label>
+                    <h3>Tipo de Evento</h3>
                         
                     <div class="inputradios">
                         <div class="estiloradios">
-                            <input type="radio" name="dsc_evento" value="Aula"> 
+                            <input type="radio" name="dsc_evento" value="Aula" checked> 
                             <label>Aula</label>
                         </div>
                         <div class="estiloradios">
-                            <input type="radio" name="dsc_evento" value="Outros"> 
-                            <label>Outros</label>
-                        </div>
-                        <div class="estiloradios">
-                            <input type="radio" name="dsc_evento" value="Aula"> 
-                            <label>Exemplo</label>
+                            <input type="radio" name="dsc_evento" value="Evento"> 
+                            <label>Evento</label>
                         </div>
                     </div>
                 </div>
                 <div class="resposavel">
-                    <div class="estiloresponsavel">
-                        <label for="id_usuario">Responsável</label>
-
-                        <select name="id_usuario" class="btn_select" >
-                            <option value="0">Selecione</option>
-                            <option value="1">Willian</option>
-                            <option value="2">Daniel</option>
-                            <option value="3">Outro</option>
-                        </select>
-                    </div>
-                    
                     <div class="estiloresponsavel" >
                         <label for="id_turma">Turma</label>
                         <select name="id_turma" class="btn_select" >
-                            <option value="0">Selecione</option>
-                            <option value="1">Ti</option>
-                            <option value="2">Outro</option>
+                            <option disabled selected hidden>Selecione</option>
+                            <% turmas.forEach(turma =>{%>
+                                <option value=<%= turma.id%>><%= turma.nome %></option>
+                            <%})%>
                         </select>
                     </div>
-                    
+
+                    <div class="estiloresponsavel">
+                        <label for="id_usuario">Responsável</label>
+                        <select name="id_usuario" class="btn_select" >
+                            <option disabled selected hidden>Selecione</option>
+                            <%professores.forEach(professor => {%>
+                                <option value= <%= professor.id%> > <%= professor.nome%> </option>
+                            <%})%>
+                        </select>
+                    </div>
                 </div>
                 <div class="local">
                         <div class="estiloresponsavel" >
                             <label for="id_disciplina">Disciplina</label>
                             <select name="id_disciplina" class="btn_select" >
-                                <option value="0">Selecione</option>
-                                <option value="1">Front-End</option>
-                                <option value="2">Outro</option>
+                                <option disabled selected hidden>Selecione</option>
+                                <%disciplinas.forEach(disciplina => {%>
+                                    <option value= <%= disciplina.id%> > <%= disciplina.name%> </option>
+                                <%})%>
                             </select>
                         </div>
                         <div class="estiloresponsavel" >
+<<<<<<< HEAD
                                 <label for="id_local">Sala</label>
+=======
+                                <label for="id_local">Local</label>
+>>>>>>> 587e2db6f8a076afa30d3f256d5d01721beadb18
                                 <select name="id_local" class="btn_select" >
-                                    <option value="0">Selecione</option>
-                                    <option value="1">Sala 1</option>
-                                    <option value="2">Outro</option>
+                                    <option disabled selected hidden>Selecione</option>
+                                    <%salas.forEach(sala => {%>
+                                        <option value= <%= sala.id%> > <%= sala.nome%> </option>
+                                    <%})%>
                                 </select>
                         </div>
                 </div>
@@ -73,16 +73,17 @@
                         <label for="ano">Data</label>
                         <input name="data" id="data "type="date" class="data">     
                     </div>
-                </div>       
-                <div id="boxCapacidade">
                     <div class="pilar">
                         <label for="horario_inicio">Horario Inicial</label>
                         <input class="data" type="time" name="horario_inicio"  min="09:00" max="18:00" required>
                     </div> 
                     <div class="pilar">
                         <label for="horario_fim">Horario Fim</label>
-                        <input class="data" type="time" name="horario_inicio"  min="09:00" max="18:00" required>
+                        <input class="data" type="time" name="horario_fim"  min="09:00" max="18:00" required>
                     </div> 
+                </div>       
+                <div id="boxCapacidade">
+                    
                 </div>       
               
                 <div class="BotaoConcluireCancelar" id="boxConcluir">
