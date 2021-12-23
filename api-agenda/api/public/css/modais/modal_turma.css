@@ -21,7 +21,6 @@
     flex-direction: column;
     background: white;
     border-radius: 10px;
-    height: 450px;
     width: 350px;
     border: solid 1px #b1b1b1;
     padding: 35px;
@@ -95,6 +94,7 @@ form label{
 #boxAno{
     padding-top: 10px;
     display: flex;
+    justify-content: space-between;
     flex-direction: row;  
     gap: 2px;
 }
@@ -198,7 +198,6 @@ form label{
 #Quant{
     display: flex;
     flex-direction: column;
-    margin: 5px;
 }
 
 /* mensagem de validação */
