@@ -1,0 +1,97 @@
+.conteudo{
+    width: calc(100% - 75px);
+    height: calc(100vh - 71px);
+    display: inline-block;
+}
+.container-conteudo{
+    margin: auto 55px;
+}
+/* pesquisa e adiciona */
+.container-pesquisar{   
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 10px;
+
+}
+
+#container-pesquisa-disciplina{
+    display: flex;
+    gap: 10px;
+}
+
+#inputdisciplina{
+    background: #4052ab;
+ 
+    color: white;
+    font-size: 16px;
+}
+#inputdisciplina:hover{
+    background: #6C7ECC;
+}
+.fa .fa-search{
+    position: relative;
+    padding: 10px;
+}
+.pesquisar-disciplina{
+    padding: 0 5px;
+}
+
+.cabecariosecundario{
+    height: 54px;
+    align-items: center;
+    display: flex;
+    background: #ffffff;
+    justify-content: space-between;
+}
+
+input:focus{
+    outline: none;
+    border: 0;
+}
+.conteudo .cabecariosecundario input{
+    height: 37px;
+    width: 152px;
+    color: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+#boxTabela{
+    background-color: #EDEDED;
+    margin: 0 57px 0 57px;
+}
+
+table{
+    width: 100%;
+}
+th{
+    width: 250px; 
+}
+td{
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+th, td{
+    text-align: center;
+}
+table, th, td{
+    border-collapse: separate;
+    border-spacing:0 10px;
+}
+
+.id{
+    display: none;
+}
+
+/* remover / edita */
+.remove:visited{
+    color:red
+}
+
+.edita:visited{
+    color:rgb(47, 0, 255)
+}

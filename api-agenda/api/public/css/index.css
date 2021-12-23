@@ -1,0 +1,187 @@
+.conteudo{
+    width: calc(100% - 75px);
+    height: calc(100vh - 71px);
+    display: inline-block;
+}
+
+.container-conteudo{
+    margin: auto 0px auto 55px;
+}
+
+/* pesquisa e adiciona */
+.container-pesquisar{   
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+#container-pesquisa-agenda{
+    display: flex;
+    gap: 10px;
+}
+
+#inputagenda{
+    background: #4052ab;
+ 
+    color: white;
+    font-size: 16px;
+}
+#inputagenda:hover{
+    background: #6C7ECC;
+}
+.fa .fa-search{
+    position: relative;
+    padding: 10px;
+}
+.pesquisar-agenda{
+    padding: 0 5px;
+}
+
+.cabecariosecundario{
+    height: 54px;
+    align-items: center;
+    display: flex;
+    background: #ffffff;
+    justify-content: space-between;
+}
+
+input:focus{
+    outline: none;
+    border: 0;
+}
+.conteudo .cabecariosecundario input{
+    height: 37px;
+    width: 152px;
+    color: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+#quantidadeAlunos {
+    height: 37px;
+    width: 180px;
+    background: #3f51b5;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 130px;
+    text-align: center;
+}
+
+#quantidadeTurmas {
+    height: 37px;
+    width: 180px;
+    background: #3f51b5;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 330px;
+    text-align: center;
+}
+
+#fundo{
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+}
+
+#data {
+    background: #183884;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 5px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 8px;
+}
+
+#full {
+    position: relative;
+}
+
+#full button {
+    position: absolute;
+    top: 9px;
+    right: 30px;
+    border-radius: 5px;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+}
+
+.turmas {
+    height: 73vh;
+    overflow: auto;
+    margin-right: 10px;
+}
+
+#painelGeral {
+    display: flex;
+    margin-top: 10px;
+}
+
+#divisaoSalas {
+    display: flex;
+    padding-top: 10px;
+}
+
+.nomeSala {
+    background: #183884;
+    color: #ffffff;
+    max-width: 232px;
+    min-width: 232px;
+    height: 25px;
+    margin-left: 8px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.painelTurmas {
+    background: #e0e0e0;
+    max-width: 240px;
+    min-width: 240px;
+    margin-left: 8px;
+    border-radius: 5px;
+    border: 1px #c5cae9 solid;
+    cursor: pointer;
+}
+
+.salas {
+    background: #ffffff;
+    height: 150px;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #212121;
+    margin: 5px;
+}
+
+.painelTurmas .titulo {
+    font-weight: bold;
+    color: #212121;
+    background: #81c784;
+    border-radius: 5px;
+}
+
+.imagem {
+    width: 25px;
+}
+
+.imgprofessor {
+    display: flex;
+}
+
+.imgprofessor img {
+    padding-right: 6px;
+}

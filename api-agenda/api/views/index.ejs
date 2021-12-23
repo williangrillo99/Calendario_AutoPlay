@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <header>
+        <%- include('partials/nav') %>
+    </header>
+
+    <section class="conteudo">
+        <div class="container-conteudo">
+            <div class="cabecariosecundario">
+                <div id="container-pesquisa-agenda">
+                    <input type="button" value="Agendar Horário" class="btn_agenda_horario" id="inputagenda">
+                    <div class="container-pesquisar">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <input class="pesquisar-agenda" placeholder="Pesquisar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="fundo">        
+                <div id="full">
+                    <p id="data"></p>
+                        <button><i class="fa fa-arrows-alt" aria-hidden="true" onclick="AtivarDesativarFS()"></i></button>
+                </div>
+                <div class="turmas">
+                    <div id="divisaoSalas">
+                        <%salas.forEach(sala =>{%>
+                        <div class="nomeSala"><%= sala.nome%></div>
+                        <% }) %>
+                    </div>
+                    <div id="painelGeral">
+                        <%salas.forEach(sala =>{%>
+                            <div class="painelTurmas">
+                                <%eventos.forEach(evento =>{%>
+                                    <% if(evento.sala_id == sala.id){%>
+                                        <div class="salas" id="sala1">
+                                            <p class="titulo" style="background-color:<%= evento.cor%>"><%= evento.turma%></p><br>
+                                            <p class="callcenter"><%= evento.disciplina%></p>                             
+                                            <p><%= evento.horario_inicio%>h - <%= evento.horario_fim%>h</p>
+                                            <p>Total Alunos: <%= evento.qtd_alunos%></p><br>
+                                            <div class="imgprofessor">
+                                                <img src="/imagens/user.png" class="imagem">
+                                                <p><%= evento.professor%></p>
+                                            </div>
+                                        </div>
+                                    <%}%>
+                                <%})%>
+                            </div>
+                        <% }) %>
+                        
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="/js/inicio/index.js"></script>
+<script src="/js/inicio/indexFullScreem.js"></script>
+</html>

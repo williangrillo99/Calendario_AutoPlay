@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/professores.css">
+    <link rel="stylesheet" href="/css/modais/modal_professor.css">
+</head>
+<body>
+        <header>
+            <%- include('partials/nav') %>
+        </header>
+        <section class="conteudo">
+            <div class="container-conteudo">
+                <div class="cabecariosecundario">
+                    <div id="container-pesquisa-professor">
+                        <input type="button" value="Adicionar Professor" class="btn_adicionar_professor" id="inputprofessor">
+                        <div class="container-pesquisar">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input class="pesquisar-professor" placeholder="Pesquisar">
+                        </div>
+                    </div>
+                    
+                    <div class="bloco_excel">
+                        <img id="imagemexcel"src="https://img.icons8.com/color/48/000000/ms-excel.png"/>
+                        <input id="botaoexcel"type="button" onclick="tableToExcel('myTable', 'name', 'myfile.xls')" value="Exportar">
+                    </div>
+                    
+                </div>
+                    <div id="dvData" class="boxTabela">
+                        <table id="myTable" class="tabela-professores">
+                            <tr id="atributos_Professor">
+                                <th>Professor</th>
+                                <th>Pilar</th>
+                                <th>Email</th>
+                                <th>Abreviação</th>
+                                <th>Disponibilidade</th>
+                            </tr>
+                            <% professores.forEach(professor => { %>
+                                <tr class="professor"> 
+                                    <td class="id"><%= professor.id%></td>
+                                    <td class="nome"><%= professor.nome%></td>
+                                    <td class="pilar"><%=professor.pilar%></td>
+                                    <td class="email"><%=professor.email%></td>
+                                    <td class="abreviacao"><%=professor.abreviacao%></td>
+                                    <td class="disponibilidade"><%=professor.disponibilidade%></td>
+                                    <td><a class="edita" href="">
+                                        <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                    </a></td>
+                                    <td><a class="remove" href="">
+                                        <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                                    </a></td>
+                                </tr>
+                            <%})%>
+                            
+                        </table>
+                    </div>
+                    
+    
+            </div>
+        </section>
+        <%- include('partials/professor/modalCadastro')%>
+        <%- include('partials/excluir') %>
+        <script>
+            function tableToExcel(table, name, filename) {
+              let uri = 'data:application/vnd.ms-excel;base64,', 
+              template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><title></title><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>', 
+              base64 = function(s) { return window.btoa(decodeURIComponent(encodeURIComponent(s))) }, format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; })}
+              
+              if (!table.nodeType) table = document.getElementById(table)
+              var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+      
+              var link = document.createElement('a');
+              link.download = filename;
+              link.href = uri + base64(format(template, ctx));
+              link.click();
+          }
+          </script>
+</body>
+<script src="/js/professor/modalProfessor.js"></script>
+<script src="/js/professor/pesquisarProfessor.js"></script>
+<script src="/js/professor/editaProfessor.js"></script>
+<script src="/js/professor/excluirProfessor.js"></script>
+<script src="/js/professor/adicionaProfessor.js"></script>
+<script src="/js/professor/validaFormulario.js"></script>
+</html>
