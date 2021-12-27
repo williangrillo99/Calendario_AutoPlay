@@ -78,27 +78,39 @@ input:focus{
     border-radius: 5px;
 }
 
-#boxTabela{
-    background-color: #EDEDED;
-    margin: 0 57px 0 57px;
+.boxTabela{
+    height:80vh;
+    overflow-y: scroll;
 }
-
 table{
     width: 100%;
 }
 th{
     width: 250px; 
+    color: rgb(0 0 0 / 50%);
+    font-weight: bolder;
+    
+}
+tr:hover{
+    background: #ececec;
 }
 td{
-    background-color: #FFFFFF;
+    color: #000000;
     padding: 10px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+   
 }
 th, td{
     text-align: center;
 }
 table, th, td{
     border-collapse: separate;
-    border-spacing:0 10px;
+    border-spacing:0 0px;
+}
+#atributos_Professor{
+    margin: 0 10px;
+    background: #ffffff;
 }
 
 .id{
@@ -113,3 +125,10 @@ table, th, td{
 .edita:visited{
     color:rgb(47, 0, 255)
 }
+
+
+
+.removeDisciplina{
+    display: none;
+}
+
