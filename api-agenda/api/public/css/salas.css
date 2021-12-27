@@ -68,13 +68,12 @@ input:focus{
     flex-flow: row wrap;
     overflow-x: auto;
     background: #F6F6F6;
-    width: 1200px;
-    height: 520px;  
+    max-width: calc(100vw - 140px);
+    max-height: calc(100vh - 140px);  
 }
 
 .containerimagens{ 
     position: relative;
-    
     margin-top: 10px;
     margin-right: 20px;
     margin-bottom: 10px;
