@@ -102,10 +102,25 @@ input:focus{
     border-radius: 5px;
     height: 35px;
     margin-right: 10px;
+    margin-left: 8px;
+}
+
+#full {
+    position: relative;
+}
+
+#full button {
+    position: absolute;
+    top: 9px;
+    right: 30px;
+    border-radius: 5px;
+    background: transparent;
+    color: #ffffff;
+    border: none;
 }
 
 .turmas {
-    max-height: 73vh;
+    height: 73vh;
     overflow: auto;
     margin-right: 10px;
 }
@@ -170,37 +185,14 @@ input:focus{
 .imgprofessor img {
     padding-right: 6px;
 }
-
-.turmasFull {
-    height: 100vh;
-    margin-right: 10px;
-}
-
-.painelTurmasFull {
-    background: #e0e0e0;
-    max-width: 150px;
-    min-width: 150px;
-    margin-left: 8px;
-    border-radius: 5px;
-    border: 1px #c5cae9 solid;
-    cursor: pointer;
-}
-
-.salasFull {
-    background: #ffffff;
-    height: 170px;
-    font-size: 16px;
-    padding: 5px;
-    border-radius: 5px;
-    color: #212121;
-    margin: 5px;
-}
-
-/* formulario para trocar datas */
-
 .form-data{
     display: flex;
     flex-direction: row;
     margin-right: 10px;
+}
+.boxdate{
+    border: 1px solid #cccccc;
+    margin-right: 10px;
+    border-radius: 5px;
 }
 

@@ -24,6 +24,7 @@ class EventosController{
             // infoEvento.id_disciplina = disciplina.id
             // infoEvento.id_local = local.id
 
+            console.log(infoEvento);
             const verificaProfessor = await modelos.eventos.findOne({
                 where: {
                     [Op.and]: [
@@ -80,7 +81,6 @@ class EventosController{
             data.setDate(data.getDate()+1)
         } 
 
-        console.log(data);
         try {
             const eventos = await modelos.eventos.findAll({
                 where: {data: data},

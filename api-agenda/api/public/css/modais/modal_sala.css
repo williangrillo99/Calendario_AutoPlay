@@ -78,6 +78,10 @@ form p{
     border: solid 1px #CCCCCC;
     padding: 0px 10px;
 }
+.botao:focus{
+    border: solid 1px #CCCCCC;
+    outline: none;
+}
 
 .boxCredenciais {
     display: flex;
@@ -101,13 +105,16 @@ form p{
     padding-top: 40px;
 }
 #botaoConcluir{
-    background-color: #409ae1;
+    background-color: #20B528;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 190px;
+    width: 157px;
     height: 40px;
+}
+#botaoConcluir:hover{
+    background-color: #55D250;
 }
 #NomeSala{
     background: transparent;
@@ -139,6 +146,10 @@ form p{
     padding: 10px 10px;
     font-size: 15px;
 }
+#descrição:focus{
+    border: solid 1px #CCCCCC;
+    outline: none;
+}
 #SelectSistema{
     width: 100px;
     background: transparent;
@@ -155,11 +166,14 @@ form p{
     justify-content: space-between;
 }
 #botaoCancelar{
-    background-color: #ef6950;
+    background-color: #FF4238;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 190px;
+    width: 157px;
     height: 40px;
+}
+#botaoCancelar:hover{
+    background: #FF7D69;
 }
