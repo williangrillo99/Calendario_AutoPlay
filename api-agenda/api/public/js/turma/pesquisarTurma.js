@@ -7,13 +7,13 @@ inputPesquisa.addEventListener('input', ()=>{
     if(inputPesquisa.value.length > 0){
         turmas.forEach(turma => {
             let nomeTurma = turma.querySelector('.nome')
-            console.log("Entrou")
+            
             if(!expressao.test(nomeTurma.textContent)){
-                console.log("Entrou2")
-                professor.classList.add('removeTurma')
+               
+                turma.classList.add('removeTurma')
             }else{
-                console.log("Entrou3")
-                professor.classList.remove('removeTurma')
+                
+               turma.classList.remove('removeTurma')
             }
         })
     }else{
