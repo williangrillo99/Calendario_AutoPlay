@@ -31,7 +31,7 @@
 .fc table {
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: 15px; /* normalize cross-browser */
+    font-size: 1em; /* normalize cross-browser */
   }
 .fc th {
     text-align: center;
@@ -148,8 +148,8 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     line-height: inherit;
   }
 .fc .fc-button:focus {
-    /* outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color; */
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
   }
 .fc .fc-button {
     -webkit-appearance: button;
@@ -178,7 +178,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     background-color: transparent;
     border: 1px solid transparent;
     padding: 0.4em 0.65em;
-    font-size: 10px;
+    font-size: 1em;
     line-height: 1.5;
     border-radius: 0.25em;
   }
@@ -186,8 +186,8 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     text-decoration: none;
   }
 .fc .fc-button:focus {
-    /* outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25); */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
   }
 .fc .fc-button:disabled {
     opacity: 0.65;
@@ -198,20 +198,20 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 
 }
 .fc .fc-button-primary {
-    color: rgb(44, 95, 143);
-    color: var(--fc-button-text-color, rgb(44, 95, 143));
-    /* background-color: #2C3E50;
-    background-color: var(--fc-button-bg-color, #2C3E50); */
-    /* border-color: #2C3E50;
-    border-color: var(--fc-button-border-color, #2C3E50); */
+    color: #fff;
+    color: var(--fc-button-text-color, #fff);
+    background-color: #2C3E50;
+    background-color: var(--fc-button-bg-color, #2C3E50);
+    border-color: #2C3E50;
+    border-color: var(--fc-button-border-color, #2C3E50);
   }
 .fc .fc-button-primary:hover {
-    color: rgb(44, 95, 143);
-    color: var(--fc-button-text-color, rgb(44, 95, 143));
-    /* background-color: #1e2b37;
-    background-color: var(--fc-button-hover-bg-color, #1e2b37); */
-    /* border-color: #1a252f;
-    border-color: var(--fc-button-hover-border-color, #1a252f); */
+    color: #fff;
+    color: var(--fc-button-text-color, #fff);
+    background-color: #1e2b37;
+    background-color: var(--fc-button-hover-bg-color, #1e2b37);
+    border-color: #1a252f;
+    border-color: var(--fc-button-hover-border-color, #1a252f);
   }
 .fc .fc-button-primary:disabled { /* not DRY */
     color: #fff;
@@ -222,20 +222,20 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     border-color: var(--fc-button-border-color, #2C3E50); /* overrides :hover */
   }
 .fc .fc-button-primary:focus {
-    /* box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5); */
+    box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
   }
 .fc .fc-button-primary:not(:disabled):active,
   .fc .fc-button-primary:not(:disabled).fc-button-active {
-    /* color: #fff;
+    color: #fff;
     color: var(--fc-button-text-color, #fff);
     background-color: #1a252f;
     background-color: var(--fc-button-active-bg-color, #1a252f);
     border-color: #151e27;
-    border-color: var(--fc-button-active-border-color, #151e27); */
+    border-color: var(--fc-button-active-border-color, #151e27);
   }
 .fc .fc-button-primary:not(:disabled):active:focus,
   .fc .fc-button-primary:not(:disabled).fc-button-active:focus {
-    /* box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5); */
+    box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
   }
 .fc {
 
@@ -293,7 +293,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     margin-top: 1.5em;
   }
 .fc .fc-toolbar-title {
-    font-size: 20px;
+    font-size: 1.75em;
     margin: 0;
   }
 .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
@@ -347,10 +347,10 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
       border-right-style: hidden;
     }
 .fc .fc-scrollgrid {
-  border-collapse: separate;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-radius: 10px;
+
+    border-collapse: separate;
+    border-right-width: 0;
+    border-bottom-width: 0;
 
   }
 .fc .fc-scrollgrid-liquid {
@@ -426,7 +426,6 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     left: 0;
   }
 .fc .fc-col-header-cell-cushion {
-    font-size: 12px;
     display: inline-block; /* x-browser for when sticky (when multi-tier header) */
     padding: 2px 4px;
   }
@@ -739,7 +738,7 @@ A HORIZONTAL event
 .fc .fc-daygrid-day-number {
     position: relative;
     z-index: 4;
-    padding: 0.5px;
+    padding: 4px;
   }
 .fc {
 
@@ -813,7 +812,7 @@ A HORIZONTAL event
 
 }
 .fc .fc-daygrid-day-bottom {
-    font-size: .65em;
+    font-size: .85em;
     padding: 2px 3px 0
   }
 .fc .fc-daygrid-day-bottom:before {
@@ -1167,6 +1166,7 @@ A VERTICAL event
     right: 0;
   }
 .fc {
+
   /* bg */
 
 }
@@ -1182,6 +1182,7 @@ A VERTICAL event
     right: 0;
   }
 .fc {
+
   /* fg events */
   /* (the mirror segs are put into a separate container with same classname, */
   /* and they must be after the normal seg container to appear at a higher z-index) */
