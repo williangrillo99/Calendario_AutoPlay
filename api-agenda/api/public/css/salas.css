@@ -67,7 +67,6 @@ input:focus{
     overflow-y: scroll;
     flex-flow: row wrap;
     overflow-x: auto;
-    background: #F6F6F6;
     width: 1200px;
     height: 520px;  
 }
