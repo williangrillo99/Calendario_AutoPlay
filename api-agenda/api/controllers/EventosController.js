@@ -19,7 +19,9 @@ class EventosController{
             const verificaProfessor = await modelos.eventos.findOne({
                 where: {
                     [Op.and]: [
-                        {id_usuario: infoEvento.id_usuario},{
+                        {data: infoEvento.data},
+                        {id_usuario: infoEvento.id_usuario},
+                        {
                             [Op.or]:[
                                 {horario_inicio: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}},
                                 {horario_fim: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}}     
@@ -32,7 +34,9 @@ class EventosController{
             const verificaHorario = await modelos.eventos.findOne({
                 where: {
                     [Op.and]: [
-                        {id_local: infoEvento.id_local},{
+                        {data: infoEvento.data},
+                        {id_local: infoEvento.id_local},
+                        {
                             [Op.or]:[
                                 {horario_inicio: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}},
                                 {horario_fim: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}}     
