@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
   eventos.init({
     dsc_evento: DataTypes.STRING,
     data: DataTypes.DATEONLY,
-    horario_inicio: DataTypes.DATE,
-    horario_fim: DataTypes.DATE
+    horario_inicio: DataTypes.TIME,
+    horario_fim: DataTypes.TIME
   }, {
     sequelize,
     modelName: 'eventos',

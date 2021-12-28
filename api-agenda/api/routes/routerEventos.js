@@ -7,7 +7,8 @@ const TurmaController = require('../controllers/TurmaController')
 
 rotasEventos.get('/', async (req, res) =>{
     const dataEnviada = req.query.data
-    console.log(dataEnviada);
+    // console.log(dataEnviada);
+
     const eventos = await EventosController.listar(dataEnviada)
     const areas = await AreasController.listar()
     const professores = await UsuarioController.listar()

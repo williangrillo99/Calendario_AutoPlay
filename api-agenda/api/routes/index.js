@@ -17,6 +17,9 @@ module.exports = app =>{
     const rotasDisciplinas = require('./routerDisciplinas')
     app.use('/disciplinas', rotasDisciplinas)
 
+    const rotaCalendario = require('./routerCalendario')
+    app.use('/calendario', rotaCalendario)
+
     const rotasEventos = require('./routerEventos')
     app.use('/', rotasEventos)
 
