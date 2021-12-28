@@ -10,21 +10,12 @@ const DisciplinaController = require('./DisciplinaController')
 class EventosController{
     static async criar(infoEvento){
         try {
-            let data = infoEvento.data
-            infoEvento.horario_inicio = data+" "+infoEvento.horario_inicio
-            infoEvento.horario_fim = data+" "+infoEvento.horario_fim
-
             //pega tuplas relativas
             const professor = await UsuarioController.pegaIdProfessor(infoEvento.id_usuario);
             const turma = await TurmaController.pegaIdTurma(infoEvento.id_turma);
             const disciplina = await DisciplinaController.pegaIdDisciplina(infoEvento.id_disciplina);
 
-            // infoEvento.id_usuario = professor.id
-            // infoEvento.id_turma = turma.id
-            // infoEvento.id_disciplina = disciplina.id
-            // infoEvento.id_local = local.id
 
-            console.log(infoEvento);
             const verificaProfessor = await modelos.eventos.findOne({
                 where: {
                     [Op.and]: [
@@ -62,10 +53,34 @@ class EventosController{
             if(turma.pilar.pilar != professor.pilar){
                 throw new Error(`${professor.nome} não pode dar para turma ${turma.nome}`)
             }
-            
-            const evento = await modelos.eventos.create(infoEvento)
-            return evento
 
+            //verifica se há referência
+            let recorrencia = infoEvento.recorrencia;
+            
+            delete infoEvento.recorrencia;
+
+            if(recorrencia){
+                
+                let dataRecorrencia = new Date(infoEvento.data)
+                
+                for(let i=0; i< recorrencia; i++){
+                    let novoDia = dataRecorrencia.getDate()+1;
+                    dataRecorrencia.setDate(novoDia)
+                    
+                    infoEvento.data = dataRecorrencia
+                    
+                    if(!(dataRecorrencia.getDay() === 0 || dataRecorrencia.getDay() === 6)){
+                        await modelos.eventos.create(infoEvento)
+                    }else{
+                        i--;
+                    }
+                }
+                return 'Eventos cadastrados!'
+
+            }else{
+                const evento = await modelos.eventos.create(infoEvento)
+                return evento
+            }
 
         }catch (error) {
             throw new Error(error.message)
@@ -96,11 +111,11 @@ class EventosController{
             
             
             eventos.forEach(async (evento) => {
-                let dataInicio = new Date(evento.horario_inicio);
+                let dataInicio = new Date(evento.data);
                 let dataFormatada = dataInicio.toLocaleDateString('pt-BR', {timeZone: 'UTC'})
-                let horarioInicio = dataInicio.getHours()+":"+dataInicio.getMinutes();
-                let dataFim = new Date(evento.horario_fim);
-                let horarioFim = dataFim.getHours()+":"+dataFim.getMinutes();
+
+                let horarioInicio = evento.horario_inicio.substr(0,5);
+                let horarioFim = evento.horario_fim.substr(0,5);
 
                 
                 const pilar = await modelos.pilares.findOne({

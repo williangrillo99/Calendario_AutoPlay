@@ -10,7 +10,7 @@ function AtivarDesativarFS() {
       painel.style.background = '#ffffff';
       setInterval(function(){
         painel.scrollBy(1, 0);
-      }, 40);
+      }, 50);
       
    } else if (elem.mozRequestFullScreen) { /* Firefox */
       elem.mozRequestFullScreen();
@@ -26,6 +26,7 @@ function AtivarDesativarFS() {
    //Se o estado atual for "FullScreen", desativá-lo.
 
       if (document.fullscreenElement) {
+      painel.style.height = '73vh';
       document.exitFullscreen();
       isFullScreen = false;
     } else if (document.mozCancelFullScreen) { /* Firefox */

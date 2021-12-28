@@ -12,15 +12,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       data:{
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull:false
       },
       horario_inicio: {
-        type: Sequelize.DATE,
+        type: Sequelize.TIME,
         allowNull:false
       },
       horario_fim: {
-        type: Sequelize.DATE,
+        type: Sequelize.TIME,
         allowNull:false
       },
       id_local: {

@@ -137,21 +137,43 @@ form label, h3{
     padding: 0px 10px;
 }
 .boxNomeeSistema{
+    display: flex;
+    flex-direction: row;
     border-top: 1px solid #003DA5;
+    
+}
+.inputradios{
     display: flex;
     flex-direction: column;
-    margin: 5px;
-    
-}.inputradios{
-    display: flex;
-    gap: 30px;
 }
 
 .estiloradios{
+    display: flex;
     align-items: center;
-    display: flex; 
-    
+    flex-direction: row; 
+    padding-left: 10px;
 }
+
+.container-checkbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 80px;
+}
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#recorrencia{
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    border: solid 1px #CCCCCC;
+    padding: 0px 10px;
+}
+
 #descrição{
     background: transparent;
     height: 80px;

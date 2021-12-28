@@ -7,8 +7,7 @@ inputPesquisa.addEventListener('input', ()=>{
     if(inputPesquisa.value.length > 0){
         professores.forEach(professor => {
             let nomeProfessor = professor.querySelector('.nome')
-            // console.log(nomeProfessor.textContent);
-            // console.log(expressao);
+          
             if(!expressao.test(nomeProfessor.textContent)){
                 professor.classList.add('removeProfessor')
             }else{
