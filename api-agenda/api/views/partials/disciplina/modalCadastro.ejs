@@ -2,40 +2,44 @@
             <div class="modal">
                 <span onclick="fechar()" class="fechar">&times;</span>
                 <div id="boxCadastro">
-                    <h1>Adicionar Disciplina</h1>
+                    <div class="mensagens-validacao">
+                        <ul class="mensagem"></ul>
+                    </div>
+                    <h1 class="titulo">Adicionar Disciplina</h1>
                     <div class="linha"></div>
                     
-                    <form>
+                    <form method="POST" action="disciplinas/cadastro">
                         <div class="boxCredenciais" id="boxNomeCompleto">
-                            <label>Nome</label>
-                            <input type="text" class="botao">
+                            <label for="name">Nome</label>
+                            <input name="name" type="text" class="botao">
                         </div>
         
                         <div class="boxCredenciais" id="boxNumeroApelido">
                             <div class="boxinputs">
-                                <label>Pilar</label>
-                                <select id="select">
-                                    <option>Ti</option>
-                                    <option>Area</option>
+                                <label for="pilar">Pilar</label>
+                                <select name="pilar" id="select">
+                                    <option value='' disabled selected hidden>Selecione</option>
+                                    <%pilares.forEach(pilar =>{%>
+                                        <option value=<%=pilar.pilar%> ><%=pilar.pilar%></option>
+                                    <%})%>
                                 </select>
                             </div>
                             <div class="boxinputs">
-                                <label>Carga horária</label>
-                                <input type="number" class="botao" id="cargahoraria">
+                                <label for="horas">Carga horária</label>
+                                <input name="horas" type="number" class="botao" id="cargahoraria">
                             </div>   
                         </div>
         
                         <div class="boxCredenciais" id="boxEmail">
-                            <label>Descrição</label>
-                            <!-- <input type="text" id="inputdescricao" class="botao"> -->
-                            <textarea id="inputdescricao" class="botao" type="text"></textarea>
+                            <label for="descricao">Descrição</label>
+                            <textarea name="descricao" id="inputdescricao" class="botao" type="text"></textarea>
                         </div>
                         <div class="box_concluirecancelar">
-                            <div class="boxCredenciais" id="boxConcluir">
-                                <input type="submit" id="cancelar"class="botaoConcluir" value="Cancelar">
+                            <div class="boxCredenciais" class="boxConcluir">
+                                <input type="button" id="cancelar" class="botaoConcluir" value="Cancelar">
                             </div>
-                            <div class="boxCredenciais" id="boxConcluir">
-                                <input type="submit" id="concluir"class="botaoConcluir" value="Concluir">
+                            <div class="boxCredenciais" class="boxConcluir">
+                                <input type="submit" id="concluir" class="botaoConcluir" value="Concluir">
                             </div>
 
                         </div>

@@ -52,6 +52,7 @@
             </div>
         </section>
         <%- include('partials/disciplina/modalCadastro')%>
+        <%- include('partials/excluir') %>
         <script>
             function tableToExcel(table, name, filename) {
               let uri = 'data:application/vnd.ms-excel;base64,', 
@@ -69,4 +70,9 @@
         </script>
 </body>
 <script src="/js/disciplina/modalDisciplina.js"></script>
+<script src="/js/disciplina/adicionarDisciplina.js"></script>
+<script src="/js/disciplina/editaDisciplina.js"></script>
+<script src="/js/disciplina/excluirDisciplina.js"></script>
+<script src="/js/disciplina/validaFormulario.js"></script>
+
 </html>

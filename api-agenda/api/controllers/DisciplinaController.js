@@ -13,7 +13,9 @@ class DisciplinaController {
     
     static async listar(){
         try {
-            return await modelos.disciplinas.findAll()
+            return await modelos.disciplinas.findAll({
+                order: ['id']
+            })
             
         } catch (error) {
             throw new Error(error.message)
@@ -30,22 +32,30 @@ class DisciplinaController {
     }
 
     static async deletar(id){
-        return await modelos.disciplinas.destroy(
-            {
-                where: {id: id}
-            }
-        )
+        try {
+            await modelos.disciplinas.destroy(
+                {
+                    where: {id: id}
+                }
+            )
+        } catch (error) {
+            throw new Error(error.message)
+        }
     }
 
     static async pegaIdDisciplina(id){
-        const disciplina = await modelos.disciplinas.findOne({
-            where: {id: id}
-        })
-
-        if(!disciplina){
-            throw new Error(`disciplina ${id} não encontrado!`)
+        try {
+            const disciplina = await modelos.disciplinas.findOne({
+                where: {id: id}
+            })
+    
+            if(!disciplina){
+                throw new Error(`disciplina ${id} não encontrado!`)
+            }
+            return disciplina;
+        } catch (error) {
+            throw new Error(error.message)
         }
-        return disciplina;
     }
 }
 

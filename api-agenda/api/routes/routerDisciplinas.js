@@ -1,16 +1,19 @@
 const rotasDisciplinas = require('express').Router()
 const DisciplinaController = require('../controllers/DisciplinaController')
+const PilarController = require('../controllers/PilarController')
 
 
 rotasDisciplinas.get('/', async (req, res)=>{
-    const disciplinas = await DisciplinaController.listar()
+    const disciplinas = await DisciplinaController.listar();
+    const pilares = await PilarController.pegarPilares();
 
     if(!disciplinas){
         res.json({erro: erro.message})
     }
     res.render('../api/views/disciplina', {
         title: 'Disciplinas',
-        disciplinas: disciplinas
+        disciplinas: disciplinas,
+        pilares: pilares
     })
 })
 

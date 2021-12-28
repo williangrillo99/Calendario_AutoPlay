@@ -3,7 +3,7 @@ let botaoAbrir = document.querySelector('.btn_adicionar_disciplina')
 
 botaoAbrir.addEventListener('click', () =>{
     let form = document.querySelector('form');
-    form.action = '/disciplina/cadastro'
+    form.action = '/disciplinas/cadastro'
 
     modal.style.display = 'flex';
     document.querySelector('.titulo').textContent = "Adicionar Disciplina"

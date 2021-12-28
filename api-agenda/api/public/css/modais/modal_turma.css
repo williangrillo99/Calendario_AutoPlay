@@ -205,7 +205,7 @@ form label{
 .mensagens-validacao{
     position: absolute;
 	left: 22%;
-    top:190px;
+    top:100px;
     color: red;
     font-weight: bold;
     font-size: 20px;

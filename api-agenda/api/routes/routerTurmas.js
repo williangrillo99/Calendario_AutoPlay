@@ -1,13 +1,10 @@
 const rotasTurmas = require('express').Router()
-const modelos = require('../models')
 const TurmaController = require('../controllers/TurmaController')
+const PilarController = require('../controllers/PilarController')
 
 rotasTurmas.get('/', async (req, res)=>{
     const turmas = await TurmaController.listar()
-    const pilares = await modelos.pilares.findAll({
-        attributes: ['pilar'],group: ['pilar'] 
-    })
-    const categorias = await modelos.pilares.findAll()
+    const pilares = await PilarController.pegarPilares();
 
     if(!turmas){
         res.json({erro: erro.message})
