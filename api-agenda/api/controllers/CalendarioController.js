@@ -32,6 +32,7 @@ class CalendarioController{
                 // })
                 
                 let eventoCalendario = {
+                    groupId: evento.local.id,
                     title: evento.turma.nome,
                     start: horarioInicio,
                     end: horarioFim,

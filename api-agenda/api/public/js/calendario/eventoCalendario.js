@@ -10,14 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
-        left: 'prev, next',
+        left: 'prev,next today',
         center: 'title',
-        right: 'timeGridWeek, dayGridMonth, timeGridDay'
+        right: 'dayGridMonth,dayGridWeek,timeGridDay'
       },
 
       initialDate: dataFormatada,
-      navLinks: false, // can click day/week names to navigate views
+      navLinks: true, // can click day/week names to navigate views
       editable: true,
+      nowIndicator: true,
       dayMaxEvents: true, // allow "more" link when too many events
       events: {
           url: 'http://localhost:3001/calendario/eventos'
