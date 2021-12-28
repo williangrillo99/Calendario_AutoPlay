@@ -41,7 +41,7 @@
                                 <%eventos.forEach(evento =>{%>
                                     <% if(evento.sala_id == sala.id){%>
                                         <div class="salas" id="sala1">
-                                            <p class="titulo" style="background-color:<%= evento.cor%>"><%= evento.turma%></p><br>
+                                            <p class="titulo-evento" style="background-color:<%= evento.cor%>"><%= evento.turma%></p><br>
                                             <p class="callcenter"><%= evento.disciplina%></p>                             
                                             <p><%= evento.horario_inicio%>h - <%= evento.horario_fim%>h</p>
                                             <p>Total Alunos: <%= evento.qtd_alunos%></p><br>
