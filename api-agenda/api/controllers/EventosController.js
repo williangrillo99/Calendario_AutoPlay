@@ -1,8 +1,7 @@
 const modelos = require('../models')
-const { Op } = require('sequelize');
+const {QueryTypes } = require('sequelize');
 
 //importando controllers
-const ReservaController = require('./ReservaController')
 const UsuarioController = require('./UsuarioController')
 const TurmaController = require('./TurmaController')
 const DisciplinaController = require('./DisciplinaController')
@@ -15,41 +14,32 @@ class EventosController{
             const turma = await TurmaController.pegaIdTurma(infoEvento.id_turma);
             const disciplina = await DisciplinaController.pegaIdDisciplina(infoEvento.id_disciplina);
 
-
-            const verificaProfessor = await modelos.eventos.findOne({
-                where: {
-                    [Op.and]: [
-                        {data: infoEvento.data},
-                        {id_usuario: infoEvento.id_usuario},
-                        {
-                            [Op.or]:[
-                                {horario_inicio: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}},
-                                {horario_fim: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}}     
-                            ]
-                        }
-                      ]
-                }
-            })
-
-            const verificaHorario = await modelos.eventos.findOne({
-                where: {
-                    [Op.and]: [
-                        {data: infoEvento.data},
-                        {id_local: infoEvento.id_local},
-                        {
-                            [Op.or]:[
-                                {horario_inicio: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}},
-                                {horario_fim: {[Op.between]: [infoEvento.horario_inicio , infoEvento.horario_fim]}}     
-                            ]
-                        }
-                      ]
-                }
-            })
-            if(verificaHorario ){
+            if(await EventosController.validaEvento(
+                infoEvento.data,
+                infoEvento.id_local,
+                "id_local",
+                infoEvento.horario_inicio,
+                infoEvento.horario_fim
+                )){
                 throw new Error('Está sala já está sendo usada neste horário')
             }
-            if(verificaProfessor){
+            if(await EventosController.validaEvento(
+                infoEvento.data,
+                infoEvento.id_usuario,
+                "id_usuario",
+                infoEvento.horario_inicio,
+                infoEvento.horario_fim
+                )){
                 throw new Error('Este professor está dando aula neste horário')
+            }
+            if(await EventosController.validaEvento(
+                infoEvento.data,
+                infoEvento.id_turma,
+                "id_turma",
+                infoEvento.horario_inicio,
+                infoEvento.horario_fim
+                )){
+                throw new Error('Esta turma está tendo aula neste horário')
             }
             if(disciplina.pilar != professor.pilar){
                 throw new Error(`${professor.nome} não pode dar aula de ${disciplina.name}`)
@@ -93,6 +83,7 @@ class EventosController{
     
     static async listar(data){
         const arrayEventos = []
+        
         if(!data){
             data = new Date();
         }else{
@@ -105,7 +96,7 @@ class EventosController{
                 where: {data: data},
                 attributes: { exclude: ['id_local','id_turma','id_usuario', 'id_disciplina'] },
                 include: [
-                    {model: modelos.turmas, as: 'turma'},
+                    {model: modelos.turmas, as: 'turma', include: {model: modelos.pilares, as: 'pilar'}},
                     {model: modelos.locais, as: 'local'},
                     {model: modelos.usuarios, as: 'usuario'},
                     {model: modelos.disciplinas, as: 'disciplina'},
@@ -121,14 +112,9 @@ class EventosController{
                 let horarioInicio = evento.horario_inicio.substr(0,5);
                 let horarioFim = evento.horario_fim.substr(0,5);
 
-                
-                const pilar = await modelos.pilares.findOne({
-                    where: {id: evento.turma.id_pilar}
-                })
 
-
-                let reserva = new ReservaController({
-                    cor: pilar.cor,
+                let reserva = {
+                    cor: evento.turma.pilar.cor,
                     sala_id: evento.local.id,
                     turma: evento.turma.nome,
                     disciplina: evento.disciplina.name,
@@ -137,10 +123,11 @@ class EventosController{
                     horario_fim: horarioFim,
                     qtd_alunos: evento.turma.qtd_alunos,
                     professor: evento.usuario.abreviacao
-                }) 
+                }
+                
                 arrayEventos.push(reserva)
             });
-
+            
             return arrayEventos;
             
         } catch (error) {
@@ -166,6 +153,22 @@ class EventosController{
         var ano = now.getFullYear();
 
         return `${dia}, ${data} de ${mes} de ${ano}`
+    }
+
+    static async validaEvento(data, idVerificador,nomeColuna, horario_inicio,horario_fim){
+        const verifica = await modelos.sequelize.query(
+            `SELECT id, dsc_evento, data,horario_inicio, horario_fim, createdAt, updatedAt, id_disciplina, id_usuario, id_local, id_turma FROM eventos AS eventos WHERE (eventos.data = ? AND eventos.${nomeColuna} = ? AND (( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim))) LIMIT 1;`,
+            {
+                replacements: [
+                    data,
+                    idVerificador,
+                    horario_inicio,
+                    horario_fim
+                ],
+                type: QueryTypes.SELECT
+            }
+        )
+        return (verifica.length !=0)
     }
 }
 
