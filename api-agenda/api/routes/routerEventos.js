@@ -37,9 +37,9 @@ rotasEventos.post('/cadastro', async (req, res) =>{
         const resultado = req.body
         const data = resultado.data
         const eventos = await EventosController.criar(resultado)
-        res.redirect(`/?data=${data}`)  
+        res.status(200).redirect(`/?data=${data}`)  
     }catch(erro){
-        res.json({erro: erro.message})
+        res.status(500).json({erro: erro.message})
     }
 })
 
