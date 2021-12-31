@@ -35,8 +35,9 @@ rotasEventos.get('/', async (req, res) =>{
 rotasEventos.post('/cadastro', async (req, res) =>{
     try{
         const resultado = req.body
+        const data = resultado.data
         const eventos = await EventosController.criar(resultado)
-        res.json(eventos)
+        res.redirect(`/?data=${data}`)  
     }catch(erro){
         res.json({erro: erro.message})
     }

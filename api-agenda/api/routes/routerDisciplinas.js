@@ -25,7 +25,7 @@ rotasDisciplinas.post('/cadastro', async (req, res) =>{
         res.json({erro: erro.message})
     }
     
-    res.json(turma)
+    res.redirect('/disciplinas')
 })
 
 rotasDisciplinas.post('/atualizar/:idDisciplina', async (req, res)=>{

@@ -9,3 +9,10 @@ checkbox.addEventListener('change', () =>{
         inputRecorrencia.value = ''
     }
 })
+
+//input data
+const formData = document.querySelector('.form-data')
+
+formData.data.addEventListener('input', ()=>{
+    formData.submit();
+})
