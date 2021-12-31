@@ -26,17 +26,12 @@ class CalendarioController{
                 let horarioInicio = evento.data + "T" +evento.horario_inicio;
                 let horarioFim = evento.data + "T" +evento.horario_fim;
                 
-
-                // const pilar = await modelos.pilares.findOne({
-                //     where: {id: evento.turma.id_pilar}
-                // })
-                
                 let eventoCalendario = {
                     groupId: evento.local.id,
                     title: evento.turma.nome,
                     start: horarioInicio,
                     end: horarioFim,
-                    color: evento.turma.pilar.cor
+                    color: evento.turma.pilar.cor,
                 }
                 
                 arrayCalendario.push(eventoCalendario)

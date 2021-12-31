@@ -12,14 +12,67 @@ document.addEventListener('DOMContentLoaded', function() {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,dayGridWeek,timeGridDay'
+        right: 'dayGridMonth,dayGridWeek,timeGridDay,listYear' //A lista pode ser Diária, Semanal, Mensal e Anual
       },
-
       initialDate: dataFormatada,
-      navLinks: true, // can click day/week names to navigate views
+      navLinks: true,
       editable: true,
       nowIndicator: true,
-      dayMaxEvents: true, // allow "more" link when too many events
+      dayMaxEvents: true,
+      
+      // Modificações
+
+      timeZone: 'local',
+      dayMaxEventRows: true,
+      navLinks: false,
+      businessHours: true,
+      editable: false,
+      selectable: true,
+      locale: 'pt-br',
+
+      buttonText: {
+        // prev: 'Anterior',
+        // next: 'Próximo',
+        // prevYear: 'Ano Anterior',
+        // nextYear: 'Próximo Ano',
+        list:'lista',
+        year:'Ano',
+        today:'hoje',
+        month:'mês',
+        week:'semana',
+        day:'dia'
+      },
+      weekText: 'W',
+      weekTextLong: 'Semana',
+      closeHint: 'Fechar',
+      timeHint: 'Hora',
+      eventHint: 'Evento',
+      allDayText: 'Dia Todo',
+      moreLinkText: 'mais',
+      noEventsText: 'Sem eventos para mostrar',
+
+      slotMinTime: '08:00:00',
+      slotMaxTime: '18:00:01', // Neessário esse segundo para mostrar até as 18h na visualização diária, se colocar apenas 18:00:00 no calendário aparece até as 17h
+      businessHours: {
+        daysOfWeek: [1, 2, 3, 4, 5],
+        startTime: '08:00:00',
+        endTime: '18:00:00' // Se o segundo adicionado acima estiver dando conflito com o endTime adiciona o segundo aqui também
+      },
+      
+      buttonHints: {
+        prev: '$0 Anterior',
+        next: 'Próximo $0',
+        today: function (buttonText, unit) {
+            return (unit === 'dia')
+                ? 'Hoje'
+                : "Este " + buttonText;
+        },
+      }, viewHint: 'Visualização $0', navLinkHint: 'Vá para $0', moreLinkHint: function (eventCnt) {
+          return "Mostrar " + eventCnt + " mais evento" +     (eventCnt === 1 ? '' : 's');
+      },
+
+      // Fim das modificações
+
       events: {
           url: 'http://localhost:3001/calendario/eventos'
       }

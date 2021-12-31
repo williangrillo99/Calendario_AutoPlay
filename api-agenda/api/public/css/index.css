@@ -167,7 +167,7 @@ input:focus{
     margin: 5px;
 }
 
-.painelTurmas .titulo {
+.painelTurmas .titulo-evento {
     font-weight: bold;
     color: #212121;
     background: #81c784;
@@ -192,7 +192,6 @@ input:focus{
 }
 .boxdate{
     border: 1px solid #cccccc;
-    margin-right: 10px;
     border-radius: 5px;
 }
 
