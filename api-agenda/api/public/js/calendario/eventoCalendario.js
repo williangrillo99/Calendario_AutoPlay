@@ -1,20 +1,15 @@
 let data = new Date()
 
 document.addEventListener('DOMContentLoaded', function() {
-    let dia = data.getDate().toString();
-    if(dia.length == 1){
-      dia = "0"+data.getDate();
-    }
-    let dataFormatada = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+dia;
     var calendarEl = document.querySelector('#calendar');
-
+    
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,dayGridWeek,timeGridDay,listYear' //A lista pode ser Diária, Semanal, Mensal e Anual
       },
-      initialDate: dataFormatada,
+      initialDate: data.toLocaleDateString().split('/').reverse().join('-'),
       navLinks: true,
       editable: true,
       nowIndicator: true,

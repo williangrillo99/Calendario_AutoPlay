@@ -37,7 +37,7 @@
                     <div class="estiloresponsavel" >
                         <label for="id_turma">Turma</label>
                         <select name="id_turma" class="btn_select" >
-                            <option disabled selected hidden>Selecione</option>
+                            <option value='' disabled selected hidden>Selecione</option>
                             <% turmas.forEach(turma =>{%>
                                 <option value=<%= turma.id%>><%= turma.nome %></option>
                             <%})%>
@@ -47,7 +47,7 @@
                     <div class="estiloresponsavel">
                         <label for="id_usuario">Responsável</label>
                         <select name="id_usuario" class="btn_select" >
-                            <option disabled selected hidden>Selecione</option>
+                            <option value='' disabled selected hidden>Selecione</option>
                             <%professores.forEach(professor => {%>
                                 <option value= <%= professor.id%> > <%= professor.nome%> </option>
                             <%})%>
@@ -58,7 +58,7 @@
                         <div class="estiloresponsavel" >
                             <label for="id_disciplina">Disciplina</label>
                             <select name="id_disciplina" class="btn_select" >
-                                <option disabled selected hidden>Selecione</option>
+                                <option value='' disabled selected hidden>Selecione</option>
                                 <%disciplinas.forEach(disciplina => {%>
                                     <option value= <%= disciplina.id%> > <%= disciplina.name%> </option>
                                 <%})%>
@@ -67,7 +67,7 @@
                         <div class="estiloresponsavel" >
                                 <label for="id_local">Local</label>
                                 <select name="id_local" class="btn_select" >
-                                    <option disabled selected hidden>Selecione</option>
+                                    <option value='' disabled selected hidden>Selecione</option>
                                     <%salas.forEach(sala => {%>
                                         <option value= <%= sala.id%> > <%= sala.nome%> </option>
                                     <%})%>

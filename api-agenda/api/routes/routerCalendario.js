@@ -3,7 +3,6 @@ const CalendarioController = require('../controllers/CalendarioController')
 
 
 rotaCalendario.get('/', (req, res) =>{
-
     res.render('../api/views/calendario', {
         title: 'Calendario'
     })
