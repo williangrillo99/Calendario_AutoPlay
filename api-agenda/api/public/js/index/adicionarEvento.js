@@ -32,7 +32,8 @@ document.querySelector('#botaoConcluir').addEventListener('click', async event =
         id_local: form.id_local.value,
         id_usuario: form.id_usuario.value,
         id_disciplina: form.id_disciplina.value,
-        id_turma: form.id_turma.value
+        id_turma: form.id_turma.value,
+        recorrencia: form.recorrencia.value
     }
 
     await axios.post('http://localhost:8080/eventos/cadastro', evento
