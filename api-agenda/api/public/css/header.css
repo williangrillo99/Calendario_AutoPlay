@@ -6,7 +6,7 @@
     font-family: 'Calibri';
 }
 
-.container{
+.div-container{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -16,7 +16,7 @@
     border-bottom: 1px solid #cccccc; 
 }
 
-.container-logo{
+.div-container-logo{
     border-right: 1px solid #cccccc;
 }
 

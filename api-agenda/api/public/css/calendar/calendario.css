@@ -295,6 +295,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-toolbar-title {
     font-size: 1.75em;
     margin: 0;
+    font-weight: bold;
   }
 .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
     margin-left: .75em; /* space between */
@@ -823,6 +824,7 @@ A HORIZONTAL event
     position: relative;
     z-index: 4;
     cursor: pointer;
+    color: black;
   }
 .fc {
 
@@ -897,6 +899,10 @@ A HORIZONTAL event
     min-width: 0; /* important for allowing to shrink all the way */
     overflow: hidden;
     font-weight: bold;
+    color: black; /* Muda a cor do title */
+  }
+  .fc-event-title:hover { /* Colocar o cursor tipo ponteiro no title */
+    cursor: pointer;
   }
 .fc-daygrid-dot-event:hover,
   .fc-daygrid-dot-event.fc-event-mirror {
@@ -920,6 +926,7 @@ A HORIZONTAL event
 /* --- spacing between time and title --- */
 .fc-direction-ltr .fc-daygrid-event .fc-event-time {
     margin-right: 3px;
+    color: black; /* Muda a cor da hora */
   }
 .fc-direction-rtl .fc-daygrid-event .fc-event-time {
     margin-left: 3px;

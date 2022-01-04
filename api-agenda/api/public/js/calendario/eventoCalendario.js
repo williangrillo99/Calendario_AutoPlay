@@ -17,6 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Modificações
 
+      eventClick: function(info) {
+        info.jsEvent.preventDefault();
+        $('#visualizar #nomeEvento').text(info.event.title)
+        $('#visualizar #inicioEvento').text(info.event.start.toLocaleString())
+        $('#visualizar #fimEvento').text(info.event.end.toLocaleString())
+        // $('#visualizar #responsavelEvento').text(info.)
+        // $('#visualizar #localEvento').text(info.)
+        // $('#visualizar #disciplinaEvento').text(info.)
+        $('#visualizar').modal('show')
+      },
+
       timeZone: 'local',
       dayMaxEventRows: true,
       navLinks: false,
@@ -30,12 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // next: 'Próximo',
         // prevYear: 'Ano Anterior',
         // nextYear: 'Próximo Ano',
-        list:'lista',
-        year:'Ano',
-        today:'hoje',
-        month:'mês',
-        week:'semana',
-        day:'dia'
+        list:'LISTA',
+        year:'ANO',
+        today:'HOJE',
+        month:'MÊS',
+        week:'SEMANA',
+        day:'DIA'
       },
       weekText: 'W',
       weekTextLong: 'Semana',
@@ -43,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
       timeHint: 'Hora',
       eventHint: 'Evento',
       allDayText: 'Dia Todo',
-      moreLinkText: 'mais',
+      moreLinkText: 'eventos',
       noEventsText: 'Sem eventos para mostrar',
 
       slotMinTime: '08:00:00',
