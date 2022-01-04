@@ -25,11 +25,21 @@ class UsuarioController{
         ) 
     }
     static async deletar(id){
-        return await modelos.usuarios.destroy(
+        const professorDeletado = modelos.usuarios.findOne({
+            where: {id: id}
+        })
+
+        if(!professorDeletado){
+            throw new Error('Professor não encontrado!')
+        }
+
+        await modelos.usuarios.destroy(
             {
                 where: {id: id}
             }
         )
+
+        return professorDeletado
     }
 
     static async pegaIdProfessor(id){

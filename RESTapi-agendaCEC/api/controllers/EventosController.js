@@ -50,6 +50,7 @@ class EventosController {
 
             //verifica se há referência
             let recorrencia = infoEvento.recorrencia;
+            // console.log(recorrencia); verificar indefinido
 
             delete infoEvento.recorrencia;
 
@@ -81,19 +82,11 @@ class EventosController {
         }
     }
 
-    static async listar(data) {
+    static async listar() {
         const arrayEventos = []
-
-        if (!data) {
-            data = new Date();
-        } else {
-            data = new Date(data)
-            data.setDate(data.getDate() + 1)
-        }
 
         try {
             const eventos = await modelos.eventos.findAll({
-                where: { data: data },
                 attributes: { exclude: ['id_local', 'id_turma', 'id_usuario', 'id_disciplina'] },
                 include: [
                     { model: modelos.turmas, as: 'turma', include: { model: modelos.pilares, as: 'pilar' } },
