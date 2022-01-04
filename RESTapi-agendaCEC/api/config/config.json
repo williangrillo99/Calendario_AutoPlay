@@ -1,5 +1,5 @@
 {
-  "development": {
+  "test": {
     "username": "yimjwcju",
     "password": "4sHGvMLsjPoeVsnR5mCR4Lw_EuPHo97l",
     "database": "yimjwcju",
@@ -7,7 +7,7 @@
     "dialect": "postgres",
     "timezone": "-03:00"
   },
-  "test": {
+  "development": {
     "username": "root",
     "password": "Autoglass@2020",
     "database": "agendacec",
