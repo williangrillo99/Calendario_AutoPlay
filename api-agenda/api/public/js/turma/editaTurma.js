@@ -24,8 +24,7 @@ btnEdita.forEach(edita =>{
         form.action = `/turmas/atualizar/${id.textContent}`
 
         let xhr = new XMLHttpRequest();
-
-        xhr.open('GET', `http://localhost:3001/pilares/${pilar.textContent}`)
+        xhr.open('GET', `http://localhost:8080/pilares/${pilar.textContent}`)
 
         xhr.addEventListener('load', ()=>{
             categoriaSelecionada.textContent =''

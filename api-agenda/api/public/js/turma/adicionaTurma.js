@@ -7,7 +7,7 @@ let categoriaSelecionada = form.querySelector('#categoria')
 pilarSelecionado.addEventListener('change', () =>{
     let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', `http://localhost:3001/pilares/${pilarSelecionado.value}`)
+    xhr.open('GET', `http://localhost:8080/pilares/${pilarSelecionado.value}`)
 
     xhr.addEventListener('load', ()=>{
         categoriaSelecionada.textContent =''

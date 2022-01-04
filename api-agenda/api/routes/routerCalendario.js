@@ -1,5 +1,5 @@
 const rotaCalendario = require('express').Router()
-const CalendarioController = require('../controllers/CalendarioController')
+const axios = require('axios')
 
 
 rotaCalendario.get('/', (req, res) =>{
@@ -9,8 +9,8 @@ rotaCalendario.get('/', (req, res) =>{
 })
 
 rotaCalendario.get('/eventos', async (req, res) =>{
-   const eventos = await CalendarioController.listar();
-   res.send(eventos);
+   const eventos = await axios.get('http://localhost:8080/calendario/eventos')
+   res.json(eventos.data);
 })
 
 module.exports = rotaCalendario;

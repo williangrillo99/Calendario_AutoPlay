@@ -35,7 +35,7 @@ document.querySelector('#botaoConcluir').addEventListener('click', async event =
         id_turma: form.id_turma.value
     }
 
-    await axios.post('http://localhost:3001/cadastro', evento
+    await axios.post('http://localhost:8080/eventos/cadastro', evento
     ).then((item) => {
         notificao("Evento Adicionado com sucesso!")
         window.location.href = `http://localhost:3001/?data=${evento.data}`

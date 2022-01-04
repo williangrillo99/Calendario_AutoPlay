@@ -1,34 +1,34 @@
 const rotasUsuarios = require('express').Router()
-const UsuarioController = require('../controllers/UsuarioController')
+const axios = require('axios')
 
 rotasUsuarios.get('/', async(req, res) => {
-    const usuarios = await UsuarioController.listar()
+    const usuarios = await axios.get('http://localhost:8080/professores')
 
-    if(!usuarios){
-        res.json({erro: erro.message})
+    if(!usuarios.data){
+        res.json({erro: "Não há professores cadastrados!"})
     }
    res.render('../api/views/professor', {
         title: 'Professores',
-        professores: usuarios
+        professores: usuarios.data
     })
 })
 
 rotasUsuarios.post('/cadastro', async (req, res) => {
     const resultado = req.body
-    const usuario = await UsuarioController.criar(resultado)
+    const usuarios = await axios.post('http://localhost:8080/professores/cadastro', resultado)
     res.redirect('/professores')
 })
 
 rotasUsuarios.post('/atualizar/:idProfessor', async (req, res)=>{
     const id = req.params.idProfessor
     const informacoesAtualizadas = req.body
-    await UsuarioController.atualizar({...informacoesAtualizadas, id:id})
+    await axios.put(`http://localhost:8080/professores/atualizar/${id}`, informacoesAtualizadas)
     res.redirect('/professores')
 })
 
 rotasUsuarios.get('/deletar/:idProfessor', async (req, res) => {
     const id = req.params.idProfessor;
-    await UsuarioController.deletar(id);
+    await axios.delete(`http://localhost:8080/professores/deletar/${id}`)
     res.redirect('/professores')
 })
 

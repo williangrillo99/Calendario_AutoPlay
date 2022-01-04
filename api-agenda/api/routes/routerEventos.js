@@ -1,22 +1,20 @@
 const rotasEventos = require('express').Router()
-const EventosController = require('../controllers/EventosController')
-const AreasController = require('../controllers/AreasController')
-const UsuarioController = require('../controllers/UsuarioController')
-const DisciplinaController = require('../controllers/DisciplinaController')
-const TurmaController = require('../controllers/TurmaController')
+const axios = require('axios');
+const Data = require('../helper/Data');
+const Evento = require('../helper/Evento');
 
 rotasEventos.get('/', async (req, res) =>{
     const dataEnviada = req.query.data
     // console.log(dataEnviada);
 
-    const eventos = await EventosController.listar(dataEnviada)
-    const areas = await AreasController.listar()
-    const professores = await UsuarioController.listar()
-    const disciplinas = await DisciplinaController.listar()
-    const turmas = await TurmaController.listar()
+    const areas = await axios.get('http://localhost:8080/areas');
+    const professores = await axios.get('http://localhost:8080/professores');
+    const disciplinas = await axios.get('http://localhost:8080/disciplinas');
+    const turmas = await axios.get('http://localhost:8080/turmas');
+    const eventos = await axios.get('http://localhost:8080/eventos');
 
-    
-    const data = await EventosController.dataFormatada(dataEnviada)
+    const verificaDataEvento = Evento.verificaDataEvento(eventos.data, dataEnviada);
+    const data = Data.dataFormatada(dataEnviada);
 
     if(!eventos){
         res.json({erro: eventos.message})
@@ -24,23 +22,13 @@ rotasEventos.get('/', async (req, res) =>{
     res.render('../api/views/index', {
         title: 'Agenda',
         data: data,
-        eventos: eventos,
-        salas: areas,
-        professores: professores,
-        disciplinas: disciplinas,
-        turmas: turmas
+        eventos: verificaDataEvento,
+        salas: areas.data,
+        professores: professores.data,
+        disciplinas: disciplinas.data,
+        turmas: turmas.data
     })
 })
 
-rotasEventos.post('/cadastro', async (req, res) =>{
-    try{
-        const resultado = req.body
-        const data = resultado.data
-        const eventos = await EventosController.criar(resultado)
-        res.status(200).redirect(`/?data=${data}`)  
-    }catch(erro){
-        res.status(500).json({erro: erro.message})
-    }
-})
 
 module.exports = rotasEventos;
