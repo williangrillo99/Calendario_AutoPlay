@@ -32,6 +32,9 @@ class CalendarioController{
                     start: horarioInicio,
                     end: horarioFim,
                     color: evento.turma.pilar.cor,
+                    responsavel: evento.usuario.nome,
+                    local: evento.local.nome,
+                    disciplina: evento.disciplina.name
                 }
                 
                 arrayCalendario.push(eventoCalendario)

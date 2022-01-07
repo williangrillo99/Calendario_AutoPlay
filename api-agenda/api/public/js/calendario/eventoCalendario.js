@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,dayGridWeek,timeGridDay,listYear' //A lista pode ser Diária, Semanal, Mensal e Anual
+        right: 'dayGridMonth,dayGridWeek,dayGridDay,listMonth' //A lista pode ser Diária, Semanal, Mensal e Anual
       },
       initialDate: data.toLocaleDateString().split('/').reverse().join('-'),
       navLinks: true,
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         $('#visualizar #nomeEvento').text(info.event.title)
         $('#visualizar #inicioEvento').text(info.event.start.toLocaleString())
         $('#visualizar #fimEvento').text(info.event.end.toLocaleString())
-        // $('#visualizar #responsavelEvento').text(info.)
-        // $('#visualizar #localEvento').text(info.)
-        // $('#visualizar #disciplinaEvento').text(info.)
+        $('#visualizar #responsavelEvento').text(info.event._def.extendedProps.responsavel)
+        $('#visualizar #localEvento').text(info.event._def.extendedProps.local)
+        $('#visualizar #disciplinaEvento').text(info.event._def.extendedProps.disciplina)
         $('#visualizar').modal('show')
       },
 
