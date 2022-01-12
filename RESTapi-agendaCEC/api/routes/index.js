@@ -1,30 +1,55 @@
-const bodyParser = require('body-parser')
-const cors = require('cors')
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-module.exports = app =>{
-    app.use(bodyParser.json())
-    app.use(bodyParser.urlencoded({extended:false}))
-    app.use(cors());
+const formatosAceitos = require("../Serializador").formatosAceitos;
+const SerializadorErro = require('../Serializador').SerializadorErro
 
-    const rotasUsuarios = require('./routerUsuarios')
-    app.use('/professores', rotasUsuarios)
+module.exports = (app) => {
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(cors());
 
-    const rotasAreas = require('./routerAreas')
-    app.use('/areas', rotasAreas)
+  app.use((req, res, prox) => {
+    res.setHeader('Content-Type', 'application/json')
+    prox()
+  })
+  const rotasUsuarios = require("./routerUsuarios");
+  app.use("/professores", rotasUsuarios);
 
-    const rotasTurmas = require('./routerTurmas')
-    app.use('/turmas', rotasTurmas)
+  const rotasAreas = require("./routerAreas");
+  app.use("/areas", rotasAreas);
 
-    const rotasDisciplinas = require('./routerDisciplinas')
-    app.use('/disciplinas', rotasDisciplinas)
+  const rotasTurmas = require("./routerTurmas");
+  app.use("/turmas", rotasTurmas);
 
-    const rotaCalendario = require('./routerCalendario')
-    app.use('/calendario', rotaCalendario)
+  const rotasDisciplinas = require("./routerDisciplinas");
+  app.use("/disciplinas", rotasDisciplinas);
 
-    const rotasEventos = require('./routerEventos')
-    app.use('/eventos', rotasEventos)
+  const rotaCalendario = require("./routerCalendario");
+  app.use("/calendario", rotaCalendario);
 
-    //rotas pilares para consumir no front
-    const rotasPilares = require('./routerPilares')
-    app.use('/pilares', rotasPilares)
-}
+  const rotasEventos = require("./routerEventos");
+  app.use("/eventos", rotasEventos);
+
+  const rotasPilares = require("./routerPilares");
+  app.use("/pilares", rotasPilares);
+
+  app.use((erro, req, res, prox) => {
+      let status = 500;
+
+      if(erro.name == 'CampoInvalido' || erro.name == 'EmailExistente'){
+        status = 400
+      }
+
+      const serializador = new SerializadorErro(
+          res.getHeader('Content-Type')
+      )
+      res.status(status)
+      res.send(
+          serializador.serializar({
+              mensagem: erro.message,
+              id: erro.idErro
+          })
+      )
+  })
+};
