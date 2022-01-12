@@ -29,7 +29,7 @@ input[type=number] {
     flex-direction: column;
     background: white;
     border-radius: 10px;
-    height: 450px;
+    height: 400px;
     width: 400px;
     border: solid 1px #b1b1b1;
     padding: 35px;
@@ -134,7 +134,7 @@ label{
 .box_concluirecancelar{
     display: flex;
     gap: 20px;
-    
+    margin-top: 20px;
 
 }
 #concluir{
