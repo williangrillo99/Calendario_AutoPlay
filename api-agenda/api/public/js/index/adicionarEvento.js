@@ -41,7 +41,7 @@ document.querySelector('#botaoConcluir').addEventListener('click', async event =
         notificao("Evento Adicionado com sucesso!")
         window.location.href = `http://localhost:3001/?data=${evento.data}`
     }).catch((error) => {
-        const erros = error.response.data.erro
+        const erros = error.response.data.mensagem
         console.log(erros);
         notificaoErro(erros)
   

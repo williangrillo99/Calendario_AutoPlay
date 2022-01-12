@@ -3,6 +3,7 @@ const { Op } = require('sequelize');
 
 const CampoInvalido = require('../errors/CampoInvalido');
 const EmailExistente = require('../errors/EmailExistente');
+const NaoEncontrado = require('../errors/NaoEncontrado')
 
 class UsuarioController{
 
@@ -53,12 +54,13 @@ class UsuarioController{
         ) 
     }
     static async deletar(id){
-        const professorDeletado = modelos.usuarios.findOne({
-            where: {id: id}
+        const professorDeletado = await modelos.usuarios.findOne({
+            where: {id: id},
+            raw: true
         })
 
         if(!professorDeletado){
-            throw new Error('Professor não encontrado!')
+            throw new NaoEncontrado('Professor não encontrado!')
         }
 
         await modelos.usuarios.destroy(
@@ -76,7 +78,7 @@ class UsuarioController{
         })
 
         if(!professor){
-            throw new Error(`Professor ${id} não encontrado!`)
+            throw new NaoEncontrado(`Professor ${id} não encontrado!`)
         }
         return professor;
     }

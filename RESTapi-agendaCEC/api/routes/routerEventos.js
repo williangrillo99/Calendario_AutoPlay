@@ -1,6 +1,8 @@
 const rotasEventos = require('express').Router()
 const EventosController = require('../controllers/EventosController')
 
+const SerializadorEvento = require('../Serializador').SerializadorEvento
+
 rotasEventos.get('/', async (req, res) =>{
     const eventos = await EventosController.listar()
 
@@ -10,13 +12,19 @@ rotasEventos.get('/', async (req, res) =>{
     res.status(200).json(eventos)
 })
 
-rotasEventos.post('/cadastro', async (req, res) =>{
+rotasEventos.post('/cadastro', async (req, res, prox) =>{
     try{
         const resultado = req.body
         const eventos = await EventosController.criar(resultado)
-        res.status(200).json(eventos)  
-    }catch(erro){
-        res.status(500).json({erro: erro.message})
+        const serializador = new SerializadorEvento(
+            res.getHeader('Content-Type')
+        )
+        res.status(200)
+        res.send(serializador.serializar(
+            eventos
+        ))  
+    }catch(error){
+        prox(error)
     }
 })
 

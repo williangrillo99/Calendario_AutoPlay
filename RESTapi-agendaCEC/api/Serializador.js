@@ -40,14 +40,6 @@ class Serializador{
     }
 }
 
-class SerializadorProfessor extends Serializador{
-    constructor(contentType, camposExtras){
-        super();
-        this.contentType = contentType;
-        this.camposPublicos = ['id', 'nome', 'email', 'abreviacao', 'pilar', 'disponibilidade'].concat(camposExtras || [])
-    }
-}
-
 class SerializadorErro extends Serializador{
     constructor(contentType, camposExtras){
         super();
@@ -57,9 +49,25 @@ class SerializadorErro extends Serializador{
     }
 }
 
+class SerializadorProfessor extends Serializador{
+    constructor(contentType, camposExtras){
+        super();
+        this.contentType = contentType;
+        this.camposPublicos = ['id', 'nome', 'email', 'abreviacao', 'pilar', 'disponibilidade'].concat(camposExtras || [])
+    }
+}
+
+class SerializadorEvento extends Serializador{
+    constructor(contentType, camposExtras){
+        super();
+        this.contentType = contentType;
+        this.camposPublicos = ['dsc_evento', 'data', 'horario_inicio', 'horario_fim', 'turma', 'local', 'usuario', 'disciplina'].concat(camposExtras || [])
+    }
+}
+
 module.exports = {
     Serializador,
     SerializadorProfessor,
     SerializadorErro,
-    formatosAceitos: ['application/json', '*/*', 'text/html']
+    SerializadorEvento,
 }

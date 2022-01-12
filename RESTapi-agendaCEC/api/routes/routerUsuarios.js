@@ -48,10 +48,19 @@ rotasUsuarios.put("/atualizar/:idProfessor", async (req, res, prox) => {
   }
 });
 
-rotasUsuarios.delete("/deletar/:idProfessor", async (req, res) => {
-  const id = req.params.idProfessor;
-  const resposta = await UsuarioController.deletar(id);
-  res.json({ mensagem: `Professor ${resposta.nome} deletado com sucesso!` });
+rotasUsuarios.delete("/deletar/:idProfessor", async (req, res, prox) => {
+  try {
+    const id = req.params.idProfessor;
+    const resposta = await UsuarioController.deletar(id);
+    const serializador = new SerializadorProfessor(
+        res.getHeader('Content-Type')
+    )
+    res.send(serializador.serializar(
+        { mensagem: `Professor ${resposta.nome} deletado com sucesso!` }
+    ));
+  } catch (error) {
+      prox(error)
+  }
 });
 
 module.exports = rotasUsuarios;

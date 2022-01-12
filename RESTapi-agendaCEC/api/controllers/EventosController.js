@@ -6,6 +6,8 @@ const UsuarioController = require('./UsuarioController')
 const TurmaController = require('./TurmaController')
 const DisciplinaController = require('./DisciplinaController')
 
+const OcupadoError = require('../errors/OcupadoError')
+
 class EventosController {
     static async criar(infoEvento) {
         try {
@@ -21,7 +23,7 @@ class EventosController {
                 infoEvento.horario_inicio,
                 infoEvento.horario_fim
             )) {
-                throw new Error('Está sala já está sendo usada neste horário')
+                throw new OcupadoError('Está sala já está sendo usada neste horário')
             }
             if (await EventosController.validaEvento(
                 infoEvento.data,
@@ -30,7 +32,7 @@ class EventosController {
                 infoEvento.horario_inicio,
                 infoEvento.horario_fim
             )) {
-                throw new Error('Este professor está dando aula neste horário')
+                throw new OcupadoError('Este professor está dando aula neste horário')
             }
             if (await EventosController.validaEvento(
                 infoEvento.data,
@@ -39,13 +41,13 @@ class EventosController {
                 infoEvento.horario_inicio,
                 infoEvento.horario_fim
             )) {
-                throw new Error('Esta turma está tendo aula neste horário')
+                throw new OcupadoError('Esta turma está tendo aula neste horário')
             }
             if (disciplina.pilar != professor.pilar) {
-                throw new Error(`${professor.nome} não pode dar aula de ${disciplina.name}`)
+                throw new OcupadoError(`${professor.nome} não pode dar aula de ${disciplina.name}`)
             }
             if (turma.pilar.pilar != professor.pilar) {
-                throw new Error(`${professor.nome} não pode dar para turma ${turma.nome}`)
+                throw new OcupadoError(`${professor.nome} não pode dar para turma ${turma.nome}`)
             }
 
             //verifica se há referência

@@ -40,6 +40,12 @@ module.exports = (app) => {
       if(erro.name == 'CampoInvalido' || erro.name == 'EmailExistente'){
         status = 400
       }
+      if(erro.name == 'NaoEncontrado'){
+        status = 404
+      }
+      if(erro.name == 'OcupadoError'){
+        status = 409
+      }
 
       const serializador = new SerializadorErro(
           res.getHeader('Content-Type')
