@@ -2,9 +2,14 @@
 <html lang="pt-BR">
 <head>
     <%- include('partials/head') %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" href="/css/calendar/calendario.css">
     <link rel="stylesheet" href="/css/calendar/eventoCalendario.css">
     
+
+    <link rel="stylesheet" href="/css/calendar/modalEventos.css">
+
     <!-- Estilo Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -19,32 +24,35 @@
             <div style="margin: 0px 8px 0px 80px;" id="calendar"></div>
         </section>
 
-        <div class="modal fade" id="visualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal t-modal fade" id="visualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
-                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
+                    <span onclick="fechar()" class="fechar" data-dismiss="modal">&times;</span>
+
                 </div>
+                <div class="linha"></div>
+
                 <div class="modal-body">
                     <dl class="row">
+                        <dt class="col-sm-3">Responsável</dt>
+                        <dd class="col-sm-9" id="responsavelEvento"></dd>
+
                         <dt class="col-sm-3">Turma</dt>
                         <dd class="col-sm-9" id="nomeEvento"></dd>
+                        
+                        <dt class="col-sm-3">Local</dt>
+                        <dd class="col-sm-9" id="localEvento"></dd>
+
+                        <dt class="col-sm-3">Disciplina</dt>
+                        <dd class="col-sm-9" id="disciplinaEvento"></dd>
 
                         <dt class="col-sm-3">Início</dt>
                         <dd class="col-sm-9" id="inicioEvento"></dd>
 
                         <dt class="col-sm-3">Fim</dt>
                         <dd class="col-sm-9" id="fimEvento"></dd>
-
-                        <dt class="col-sm-3">Responsável</dt>
-                        <dd class="col-sm-9" id="responsavelEvento"></dd>
-
-                        <dt class="col-sm-3">Local</dt>
-                        <dd class="col-sm-9" id="localEvento"></dd>
-
-                        <dt class="col-sm-3">Disciplina</dt>
-                        <dd class="col-sm-9" id="disciplinaEvento"></dd>
                     </dl>
                 </div>
             </div>
@@ -53,6 +61,6 @@
 </body>
 <script src="/js/calendario/eventoCalendario.js"></script>
 <script src="/js/calendario/calendario.js"></script>
-
+<script src="/js/calendario/modalCalendario.js"></script>
 
 </html>

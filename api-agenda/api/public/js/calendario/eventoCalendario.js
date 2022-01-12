@@ -7,13 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,dayGridWeek,dayGridDay,listMonth' //A lista pode ser Diária, Semanal, Mensal e Anual
+        right: 'dayGridMonth,dayGridWeek,dayGridDay,listYear' //A lista pode ser Diária, Semanal, Mensal e Anual
       },
       initialDate: data.toLocaleDateString().split('/').reverse().join('-'),
-      navLinks: true,
-      editable: true,
       nowIndicator: true,
-      dayMaxEvents: true,
       
       // Modificações
 
@@ -29,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
       },
 
       timeZone: 'local',
-      dayMaxEventRows: true,
+      dayMaxEvents: 2,
+      dayMaxEventRows: false,
       navLinks: false,
       businessHours: true,
       editable: false,
@@ -54,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
       timeHint: 'Hora',
       eventHint: 'Evento',
       allDayText: 'Dia Todo',
-      moreLinkText: 'eventos',
+      moreLinkText: 'evento', // Renomeia o +2 eventos
       noEventsText: 'Sem eventos para mostrar',
 
       slotMinTime: '08:00:00',
@@ -74,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 : "Este " + buttonText;
         },
       }, viewHint: 'Visualização $0', navLinkHint: 'Vá para $0', moreLinkHint: function (eventCnt) {
-          return "Mostrar " + eventCnt + " mais evento" +     (eventCnt === 1 ? '' : 's');
+          return "Mostrar mais " + eventCnt + " evento" +     (eventCnt === 1 ? '' : 's');
       },
 
       // Fim das modificações

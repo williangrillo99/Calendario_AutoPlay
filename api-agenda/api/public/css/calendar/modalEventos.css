@@ -1,0 +1,61 @@
+.t-modal .modal-title{
+    font-size: 30px;
+    color: #003DA5;
+    display: flex;
+    justify-items: start;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+
+
+.t-modal .fechar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    float: right;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.t-modal .fechar:hover, .t-modal .fechar:focus {
+    color: #003DA5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.t-modal .linha{
+    height: 1px;
+    width: 100%;
+    background-color: #003DA5;
+}
+
+.t-modal .modal-content {
+    border-radius: 10px;
+    margin: 35px;
+    width: 75%;
+}
+
+.t-modal .row {
+    margin-right: -115px;
+    margin-left: 25px;
+}
+
+.t-modal{
+    position: absolute;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 450px;
+    width: 400px;
+    border: solid 1px #b1b1b1;
+    padding: 35px;
+} 

@@ -702,11 +702,13 @@ A HORIZONTAL event
 .fc-daygrid-day-frame:before, .fc-daygrid-day-events:before, .fc-daygrid-event-harness:before {
   content: "";
   clear: both;
-  display: table; }
+  display: table; 
+}
 .fc-daygrid-day-frame:after, .fc-daygrid-day-events:after, .fc-daygrid-event-harness:after {
   content: "";
   clear: both;
-  display: table; }
+  display: table; 
+}
 .fc .fc-daygrid-body { /* a <div> that wraps the table */
     position: relative;
     z-index: 1; /* container inner z-index's because <tr>s can't do it */
@@ -714,11 +716,12 @@ A HORIZONTAL event
 .fc .fc-daygrid-day.fc-day-today {
       background-color: rgba(255, 220, 40, 0.15);
       background-color: var(--fc-today-bg-color, rgba(255, 220, 40, 0.15));
-    }
+}
 .fc .fc-daygrid-day-frame {
-    position: relative;
-    min-height: 100%; /* seems to work better than `height` because sets height after rows/cells naturally do it */
-  }
+  position: relative;
+  height: 100px; /* seems to work better than `height` because sets height after rows/cells naturally do it */
+  width: 100%;
+}
 .fc {
 
   /* cell top */
