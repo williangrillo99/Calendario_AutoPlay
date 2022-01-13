@@ -16,10 +16,7 @@ btnEdita.forEach(edita => {
         let email = tr.querySelector('.email')
         let abreviacao = tr.querySelector('.abreviacao')
         let disponibilidade = tr.querySelector('.disponibilidade')
-        
-        let form = document.querySelector('.form');
-
-        form.action = `/professores/atualizar/${id.textContent}`
+    
 
         form.nome.value = nome.textContent
         form.pilar.value = pilar.textContent
@@ -27,8 +24,26 @@ btnEdita.forEach(edita => {
         form.abreviacao.value = abreviacao.textContent
         form.disponibilidade.value = disponibilidade.textContent
         
-        botaoAtualiza.addEventListener('click',() =>{
-            form.submit();
+        botaoAtualiza.addEventListener('click',async () =>{
+
+            let informacoesAtualizadas ={
+                nome: form.nome.value,
+                pilar: form.pilar.value,
+                email: form.email.value,
+                abreviacao: form.abreviacao.value,
+                disponibilidade: form.disponibilidade.value
+            }
+            await axios.put(`http://localhost:8080/professores/atualizar/${id.textContent}`, informacoesAtualizadas).then((() => {
+                setTimeout(() =>{
+                    window.location.href = `http://localhost:3001/professores`
+                }, 2000)
+                notificao("Professor Atualizado com sucesso!")
+            })).catch((error) => {
+                console.log(informacoesAtualizadas, id.textContent);
+                const erros = error.response.data.mensagem
+                console.log(erros);
+                notificaoErro(erros)  
+            })
         })
 
         

@@ -19,13 +19,6 @@ rotasUsuarios.post('/cadastro', async (req, res) => {
     res.redirect('/professores')
 })
 
-rotasUsuarios.post('/atualizar/:idProfessor', async (req, res)=>{
-    const id = req.params.idProfessor
-    const informacoesAtualizadas = req.body
-    await axios.put(`http://localhost:8080/professores/atualizar/${id}`, informacoesAtualizadas)
-    res.redirect('/professores')
-})
-
 rotasUsuarios.get('/deletar/:idProfessor', async (req, res) => {
     const id = req.params.idProfessor;
     await axios.delete(`http://localhost:8080/professores/deletar/${id}`)
