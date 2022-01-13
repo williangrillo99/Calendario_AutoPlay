@@ -26,15 +26,27 @@ class CalendarioController{
                 let horarioInicio = evento.data + "T" +evento.horario_inicio;
                 let horarioFim = evento.data + "T" +evento.horario_fim;
                 
-                let eventoCalendario = {
-                    groupId: evento.local.id,
-                    title: evento.turma.nome,
-                    start: horarioInicio,
-                    end: horarioFim,
-                    color: evento.turma.pilar.cor,
-                    responsavel: evento.usuario.nome,
-                    local: evento.local.nome,
-                    disciplina: evento.disciplina.name
+                let eventoCalendario = {}
+                if(evento.dsc_evento === 'Evento'){
+                    // eventoCalendario = {
+                    //     color: '#00FF00',
+                    //     local: evento.local.nome,
+                    //     title: 'Evento',
+                    //     qtd_pessoas: evento.local.capacidade,
+                    //     start: horarioInicio,
+                    //     end: horarioFim,
+                    //     responsavel: evento.usuario.nome
+                    // };
+                }else{
+                    eventoCalendario = {
+                        title: evento.turma.nome,
+                        start: horarioInicio,
+                        end: horarioFim,
+                        color: evento.turma.pilar.cor,
+                        responsavel: evento.usuario.nome,
+                        local: evento.local.nome,
+                        disciplina: evento.disciplina.name
+                    }
                 }
                 
                 arrayCalendario.push(eventoCalendario)

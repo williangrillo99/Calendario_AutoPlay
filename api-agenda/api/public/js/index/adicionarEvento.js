@@ -44,7 +44,6 @@ document.querySelector('#botaoConcluir').addEventListener('click', async event =
         const erros = error.response.data.mensagem
         console.log(erros);
         notificaoErro(erros)
-  
     })
 })
 

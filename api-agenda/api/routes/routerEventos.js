@@ -16,9 +16,6 @@ rotasEventos.get('/', async (req, res) =>{
     const verificaDataEvento = Evento.verificaDataEvento(eventos.data, dataEnviada);
     const data = Data.dataFormatada(dataEnviada);
 
-    if(!eventos){
-        res.json({erro: eventos.message})
-    }
     res.render('../api/views/index', {
         title: 'Agenda',
         data: data,

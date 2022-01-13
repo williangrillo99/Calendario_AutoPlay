@@ -1,13 +1,13 @@
 {
-  "test": {
-    "username": "yimjwcju",
-    "password": "4sHGvMLsjPoeVsnR5mCR4Lw_EuPHo97l",
-    "database": "yimjwcju",
+  "development": {
+    "username": "tzzfrykg",
+    "password": "MsrUg-2Q8FTlyqvado083yMuIAkjDPKC",
+    "database": "tzzfrykg",
     "host": "castor.db.elephantsql.com",
     "dialect": "postgres",
     "timezone": "-03:00"
   },
-  "development": {
+  "test": {
     "username": "root",
     "password": "Autoglass@2020",
     "database": "agendacec",
