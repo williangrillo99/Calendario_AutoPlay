@@ -8,8 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      titulo_evento: {
+        type: Sequelize.STRING 
+      },
       dsc_evento: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(50)
       },
       data:{
         type: Sequelize.DATEONLY,

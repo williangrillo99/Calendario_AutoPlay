@@ -158,13 +158,39 @@ input:focus{
 }
 
 .salas {
+    position: relative;
     background: #ffffff;
     height: 150px;
+    width: 90%;
     font-size: 16px;
     padding: 5px;
     border-radius: 5px;
     color: #212121;
     margin: 5px;
+    transition: 0.3s;
+}
+
+.salas:hover{
+    transform: scale(1.01);
+}
+
+.salas:hover .icone{
+    display: inline;
+}
+
+.icone{
+    display: none;
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+}
+
+/* remover / edita */
+.icone .edita:visited{
+    color:rgb(47, 0, 255)
+}
+.icone .remove:visited{
+    color:red
 }
 
 .painelTurmas .titulo-evento {

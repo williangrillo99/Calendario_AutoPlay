@@ -12,7 +12,7 @@ const CampoInvalido = require("../errors/CampoInvalido");
 class EventosController {
   static validarCampos(dadosEvento) {
     
-    switch(dadosEvento.dsc_evento){
+    switch(dadosEvento.titulo_evento){
       case 'Aula':
         if (
           typeof dadosEvento.id_turma !== "string" ||
@@ -30,6 +30,12 @@ class EventosController {
       default:
         dadosEvento.id_turma = null
         dadosEvento.id_disciplina = null
+        if (
+          dadosEvento.dsc_evento.length === 0 ||
+          dadosEvento.dsc_evento.length > 50
+        ) {
+          throw new CampoInvalido("descrição do evento");
+        }
     }
     if (
       typeof dadosEvento.id_usuario !== "string" ||
@@ -55,7 +61,7 @@ class EventosController {
   static async criar(infoEvento) {
     this.validarCampos(infoEvento);
     //pega tuplas relativas
-    if(infoEvento.dsc_evento === 'Aula'){
+    if(infoEvento.titulo_evento === 'Aula'){
       const professor = await UsuarioController.pegaIdProfessor(
         infoEvento.id_usuario
       );
@@ -63,6 +69,9 @@ class EventosController {
       const disciplina = await DisciplinaController.pegaIdDisciplina(
         infoEvento.id_disciplina
       );
+
+      //inserindo o nome da turma da dsc do evento, caso seja aula
+      infoEvento.dsc_evento = turma.nome
 
       if (
         await EventosController.validaEvento(
@@ -172,11 +181,11 @@ class EventosController {
         let horarioFim = evento.horario_fim.substr(0, 5);
 
         let reserva;
-        if(evento.dsc_evento === 'Evento'){
+        if(evento.titulo_evento === 'Evento'){
           reserva = {
             cor: '#00FF00',
             sala_id: evento.local.id,
-            titulo: 'Evento',
+            titulo_evento: evento.titulo_evento,
             dsc_evento: evento.dsc_evento,
             data: dataFormatada,
             qtd_pessoas: evento.local.capacidade,
@@ -188,7 +197,7 @@ class EventosController {
           reserva = {
             cor: evento.turma.pilar.cor,
             sala_id: evento.local.id,
-            titulo: evento.turma.nome,
+            titulo_evento: evento.turma.nome,
             disciplina: evento.disciplina.name,
             data: dataFormatada,
             horario_inicio: horarioInicio,
@@ -256,7 +265,7 @@ class EventosController {
     horario_fim
   ) {
     const verifica = await modelos.sequelize.query(
-      `SELECT id, dsc_evento, data,horario_inicio, horario_fim, id_disciplina, id_usuario, id_local, id_turma FROM eventos AS eventos WHERE (eventos.data = ? AND eventos.${nomeColuna} = ?) AND (( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( eventos.horario_inicio BETWEEN ? AND ?) OR (  eventos.horario_fim BETWEEN ? AND ?)) LIMIT 1;`,
+      `SELECT id,titulo_evento, dsc_evento, data,horario_inicio, horario_fim, id_disciplina, id_usuario, id_local, id_turma FROM eventos AS eventos WHERE (eventos.data = ? AND eventos.${nomeColuna} = ?) AND (( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( eventos.horario_inicio BETWEEN ? AND ?) OR (  eventos.horario_fim BETWEEN ? AND ?)) LIMIT 1;`,
       {
         replacements: [
           data,

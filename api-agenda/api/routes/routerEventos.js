@@ -8,8 +8,6 @@ rotasEventos.get('/', async (req, res) =>{
     // console.log(dataEnviada);
 
     const areas = await axios.get('http://localhost:8080/areas');
-    const professores = await axios.get('http://localhost:8080/professores');
-    const disciplinas = await axios.get('http://localhost:8080/disciplinas');
     const turmas = await axios.get('http://localhost:8080/turmas');
     const eventos = await axios.get('http://localhost:8080/eventos');
 
@@ -21,8 +19,6 @@ rotasEventos.get('/', async (req, res) =>{
         data: data,
         eventos: verificaDataEvento,
         salas: areas.data,
-        professores: professores.data,
-        disciplinas: disciplinas.data,
         turmas: turmas.data
     })
 })

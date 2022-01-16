@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   eventos.init({
-    dsc_evento: DataTypes.STRING,
+    dsc_evento: DataTypes.STRING(50),
+    titulo_evento: DataTypes.STRING,
     data: DataTypes.DATEONLY,
     horario_inicio: DataTypes.TIME,
     horario_fim: DataTypes.TIME

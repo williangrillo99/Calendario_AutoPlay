@@ -41,11 +41,11 @@
                                 <%eventos.forEach(evento =>{%>
                                     <% if(evento.sala_id == sala.id){%>
                                         <div class="salas" id="sala1">
-                                            <p class="titulo-evento" style="background-color:<%= evento.cor%>"><%= evento.titulo%></p><br>
+                                            <p class="titulo-evento" style="background-color:<%= evento.cor%>"><%= evento.titulo_evento%></p><br>
                                             <p class="callcenter"><%= evento.dsc_evento%></p>                             
                                             <p class="callcenter"><%= evento.disciplina%></p>                             
                                             <p><%= evento.horario_inicio%>h - <%= evento.horario_fim%>h</p>
-                                            <% if(evento.titulo == 'Evento'){%>
+                                            <% if(evento.titulo_evento == 'Evento'){%>
                                                 <p>Max. Pessoas: <%= evento.qtd_pessoas%></p><br>
                                             <%}else{%>
                                                 <p>Total Alunos: <%= evento.qtd_pessoas%></p><br>
@@ -53,6 +53,14 @@
                                             <div class="imgprofessor">
                                                 <img src="/imagens/user.png" class="imagem">
                                                 <p><%= evento.professor%></p>
+                                            </div>
+                                            <div class="icone">
+                                                <a class="edita" href="">
+                                                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                                </a>
+                                                <a class="remove" href="">
+                                                    <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     <%}%>

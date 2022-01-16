@@ -4,28 +4,20 @@ let btnEnvia =  document.querySelector('#botaoConcluir')
 let pilarSelecionado = form.querySelector('#pilar')
 let categoriaSelecionada = form.querySelector('#categoria')
 
-pilarSelecionado.addEventListener('change', () =>{
-    let xhr = new XMLHttpRequest();
+pilarSelecionado.addEventListener('change', async () =>{
 
-    xhr.open('GET', `http://localhost:8080/pilares/${pilarSelecionado.value}`)
-
-    xhr.addEventListener('load', ()=>{
-        categoriaSelecionada.textContent =''
-        categoriaSelecionada.disabled = false
-        
-        let categorias = JSON.parse(xhr.responseText)
-        
-        categorias.forEach(categoria =>{
-            let option = document.createElement('option')
-            option.value = categoria.id
-            option.textContent = categoria.categoria
-            categoriaSelecionada.append(option)
-        })
-
-    })
-
-    xhr.send()
-    
+    await axios.get(`http://localhost:8080/pilares/${pilarSelecionado.value}`)
+        .then(categorias => {
+            categoriaSelecionada.textContent =''
+            categoriaSelecionada.disabled = false
+            
+            categorias.data.forEach(categoria =>{
+                let option = document.createElement('option')
+                option.value = categoria.id
+                option.textContent = categoria.categoria
+                categoriaSelecionada.append(option)
+            })
+        }) 
 })
 
 

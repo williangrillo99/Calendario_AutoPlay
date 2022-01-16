@@ -1,5 +1,5 @@
 .body{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -227,7 +227,16 @@ form label, h3{
 .resposavel{
     display: flex;
     margin-top: 10px;
-  
+}
+
+.container-dsc-evento{
+    display: none;
+}
+#dsc_evento{
+    border: solid 1px #CCCCCC;
+    resize: none;
+    width: 335px;
+    height: 60px;
 }
 .btn_select{
     width: 161px;

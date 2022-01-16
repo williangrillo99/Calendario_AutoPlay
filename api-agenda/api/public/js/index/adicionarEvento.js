@@ -25,6 +25,7 @@ document.querySelector('#botaoConcluir').addEventListener('click', async event =
     event.preventDefault();
 
     const evento = {
+        titulo_evento: form.titulo.value,
         dsc_evento: form.dsc_evento.value,
         data: form.data.value,
         horario_inicio: form.horario_inicio.value,
@@ -35,11 +36,14 @@ document.querySelector('#botaoConcluir').addEventListener('click', async event =
         id_turma: form.id_turma.value,
         recorrencia: form.recorrencia.value
     }
+    console.log(evento);
 
     await axios.post('http://localhost:8080/eventos/cadastro', evento
     ).then((item) => {
+        setTimeout(() => {
+            window.location.href = `http://localhost:3001/?data=${evento.data}`
+        }, 2000)
         notificao("Evento Adicionado com sucesso!")
-        window.location.href = `http://localhost:3001/?data=${evento.data}`
     }).catch((error) => {
         const erros = error.response.data.mensagem
         console.log(erros);
@@ -47,33 +51,11 @@ document.querySelector('#botaoConcluir').addEventListener('click', async event =
     })
 })
 
-function notificaoErro(erro) {
-    Toastify({
-        text: erro,
-        duration: 2000,
-        newWindow: true,
-        close: true,
-        gravity: "top", // top or bottom
-        position: "right", // left, center or right
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-            background: "#BB2020",
-        }
-    }).showToast();
+async function pegarDisciplina(){
+    const disciplinas = await axios.get('http://localhost:8080/disciplinas')
+    return disciplinas
 }
-
-function notificao(texto) {
-    Toastify({
-        text: texto,
-        duration: 5000,
-        destination: "http://localhost:3001/calendario",
-        newWindow: true,
-        close: true,
-        gravity: "top", // top or bottom
-        position: "right", // left, center or right
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-            background: "#00298E",
-        }
-    }).showToast();
+async function pegarProfessores(){
+    const professores = await axios.get('http://localhost:8080/professores');
+    return professores
 }
