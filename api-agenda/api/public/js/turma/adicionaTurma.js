@@ -5,7 +5,6 @@ let pilarSelecionado = form.querySelector('#pilar')
 let categoriaSelecionada = form.querySelector('#categoria')
 
 pilarSelecionado.addEventListener('change', async () =>{
-
     await axios.get(`http://localhost:8080/pilares/${pilarSelecionado.value}`)
         .then(categorias => {
             categoriaSelecionada.textContent =''

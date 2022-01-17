@@ -58,9 +58,7 @@ class EventosController {
     }
   }
 
-  static async criar(infoEvento) {
-    this.validarCampos(infoEvento);
-    //pega tuplas relativas
+  static async validaDisponibilidade(infoEvento){
     if(infoEvento.titulo_evento === 'Aula'){
       const professor = await UsuarioController.pegaIdProfessor(
         infoEvento.id_usuario
@@ -118,12 +116,14 @@ class EventosController {
     ) {
       throw new OcupadoError("Este professor está dando aula neste horário");
     }
-    
+  }
+
+  static async criar(infoEvento) {
+    this.validarCampos(infoEvento);
+    await this.validaDisponibilidade(infoEvento);
 
     //verifica se há referência
     let recorrencia = infoEvento.recorrencia;
-    // console.log(recorrencia); verificar indefinido
-
     delete infoEvento.recorrencia;
 
     if (recorrencia) {
@@ -183,6 +183,7 @@ class EventosController {
         let reserva;
         if(evento.titulo_evento === 'Evento'){
           reserva = {
+            id: evento.id,
             cor: '#00FF00',
             sala_id: evento.local.id,
             titulo_evento: evento.titulo_evento,
@@ -195,6 +196,7 @@ class EventosController {
           };
         }else{
           reserva = {
+            id: evento.id,
             cor: evento.turma.pilar.cor,
             sala_id: evento.local.id,
             titulo_evento: evento.turma.nome,
@@ -214,6 +216,40 @@ class EventosController {
     } catch (error) {
       throw new Error(error);
     }
+  }
+
+  static async atualizarEvento(infoEvento){
+    this.validarCampos(infoEvento);
+    await this.validaDisponibilidade(infoEvento);
+
+    const evento = await modelos.eventos.update(
+      infoEvento,
+      {
+        where: {id: infoEvento.id}
+      }
+    )
+    return evento
+  }
+
+  static async pegaEventoPorId(id){
+    const eventos = await modelos.eventos.findOne({
+      where: {id: id},
+      attributes: {
+        exclude: ["id_local", "id_turma", "id_usuario", "id_disciplina"],
+      },
+      include: [
+        {
+          model: modelos.turmas,
+          as: "turma",
+          include: { model: modelos.pilares, as: "pilar" },
+        },
+        { model: modelos.locais, as: "local" },
+        { model: modelos.usuarios, as: "usuario" },
+        { model: modelos.disciplinas, as: "disciplina" }, 
+      ]
+    })
+
+    return eventos;
   }
 
   static dataFormatada(novaDate) {

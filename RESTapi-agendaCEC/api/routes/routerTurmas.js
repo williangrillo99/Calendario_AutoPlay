@@ -2,13 +2,27 @@ const rotasTurmas = require('express').Router()
 const TurmaController = require('../controllers/TurmaController')
 const PilarController = require('../controllers/PilarController')
 
-rotasTurmas.get('/', async (req, res)=>{
-    const turmas = await TurmaController.listar()
+rotasTurmas.get('/', async (req, res, prox)=>{
+    try {
+        const turmas = await TurmaController.listar()
 
-    if(!turmas){
-        res.json({erro: erro.message})
+        if(!turmas){
+            res.json({erro: erro.message})
+        }
+        res.json(turmas)
+    } catch (error) {
+        prox(error)
     }
-    res.json(turmas)
+})
+
+rotasTurmas.get('/:idTurma', async (req, res, prox) =>{
+    try {
+        const id = req.params.idTurma
+        const turma = await TurmaController.pegaIdTurma(id)
+        res.json(turma)
+    } catch (error) {
+        prox(error)
+    }
 })
 
 rotasTurmas.post('/cadastro', async (req, res) =>{

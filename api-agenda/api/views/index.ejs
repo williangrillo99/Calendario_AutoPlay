@@ -40,16 +40,16 @@
                             <div class="painelTurmas">
                                 <%eventos.forEach(evento =>{%>
                                     <% if(evento.sala_id == sala.id){%>
-                                        <div class="salas" id="sala1">
+                                        <div class="salas" id='<%= evento.id %>'>
                                             <p class="titulo-evento" style="background-color:<%= evento.cor%>"><%= evento.titulo_evento%></p><br>
-                                            <p class="callcenter"><%= evento.dsc_evento%></p>                             
-                                            <p class="callcenter"><%= evento.disciplina%></p>                             
-                                            <p><%= evento.horario_inicio%>h - <%= evento.horario_fim%>h</p>
                                             <% if(evento.titulo_evento == 'Evento'){%>
-                                                <p>Max. Pessoas: <%= evento.qtd_pessoas%></p><br>
+                                                <p class="callcenter" id="evento"><%= evento.dsc_evento%></p>                             
+                                                <p>Max. Pessoas: <%= evento.qtd_pessoas%></p>
                                             <%}else{%>
-                                                <p>Total Alunos: <%= evento.qtd_pessoas%></p><br>
+                                                <p class="callcenter" id="aula"><%= evento.disciplina%></p>                             
+                                                <p>Total Alunos: <%= evento.qtd_pessoas%></p>
                                             <%}%>
+                                            <p id="horario"><%= evento.horario_inicio%>h - <%= evento.horario_fim%>h</p><br>
                                             <div class="imgprofessor">
                                                 <img src="/imagens/user.png" class="imagem">
                                                 <p><%= evento.professor%></p>
@@ -76,8 +76,9 @@
     <%- include('partials/index/modalCadastro')%>
 </body>
 <%- include('partials/scripts')%>
-<script src="/js/index/indexFullScreem.js"></script>
 <script src="/js/index/modalReserva.js"></script>
+<script src="/js/index/indexFullScreem.js"></script>
 <script src="/js/index/adicionarEvento.js"></script>
+<script src="/js/index/editaEvento.js"></script>
 </body>
 </html>
