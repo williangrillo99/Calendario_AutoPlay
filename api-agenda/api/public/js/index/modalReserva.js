@@ -17,7 +17,7 @@ botaoAbrir.addEventListener('click', () =>{
 })
 
 //verifica se evento ou aula
-let dsc_evento = document.getElementsByName('titulo')
+let titulo_eventos = document.getElementsByName('titulo_evento')
 let inputEventos = document.querySelector('.inputradios')
 
 //pegando os selects de turma e disciplina
@@ -27,8 +27,11 @@ let disciplina = inputsTurmaDisciplina.querySelector('#id_disciplina')
 let dscEvento = document.querySelector('.container-dsc-evento')
 let textArea  = dscEvento.getElementsByTagName('textarea')[0]
 
+console.log(inputEventos);
+console.log(titulo_eventos);
 inputEventos.addEventListener('change', () => {
-    dsc_evento.forEach(async (evento) => {
+    titulo_eventos.forEach(async (evento) => {
+        console.log(dscEvento);
         if(evento.checked){
             await verificaSeEvento(evento.value)
         }
