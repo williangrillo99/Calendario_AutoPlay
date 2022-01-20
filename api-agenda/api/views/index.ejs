@@ -41,7 +41,7 @@
                                 <%eventos.forEach(evento =>{%>
                                     <% if(evento.sala_id == sala.id){%>
                                         <div class="salas" id='<%= evento.id %>'>
-                                            <p class="titulo-evento" style="background-color:<%= evento.cor%>"><%= evento.titulo_evento%></p><br>
+                                            <div class="titulo-evento" style="background-color:<%= evento.cor%>"><%= evento.titulo_evento%></div><br>
                                             <% if(evento.titulo_evento == 'Evento'){%>
                                                 <p class="callcenter" id="evento"><%= evento.dsc_evento%></p>                             
                                                 <p>Max. Pessoas: <%= evento.qtd_pessoas%></p>

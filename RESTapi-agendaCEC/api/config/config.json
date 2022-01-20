@@ -9,8 +9,8 @@
   },
   "test": {
     "username": "root",
-    "password": "Autoglass@2020",
-    "database": "agendacec",
+    "password": "Dreadmin",
+    "database": "agenda-cec",
     "host": "localhost",
     "dialect": "mysql",
     "timezone": "-03:00"

@@ -161,13 +161,16 @@ input:focus{
     position: relative;
     background: #ffffff;
     height: 150px;
-    width: 90%;
+    width: 95%;
     font-size: 16px;
-    padding: 5px;
     border-radius: 5px;
     color: #212121;
     margin: 5px;
     transition: 0.3s;
+}
+
+.salas p {
+    padding-left: 5px;
 }
 
 .salas:hover{
@@ -198,6 +201,8 @@ input:focus{
     color: #212121;
     background: #81c784;
     border-radius: 5px;
+    height: 25px;
+    padding-left: 10px;
 }
 
 .imagem {
