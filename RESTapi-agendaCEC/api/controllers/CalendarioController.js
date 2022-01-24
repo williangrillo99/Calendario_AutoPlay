@@ -27,7 +27,7 @@ class CalendarioController{
                 let horarioFim = evento.data + "T" +evento.horario_fim;
                 
                 let eventoCalendario = {}
-                if(evento.dsc_evento === 'Evento'){
+                if(evento.titulo_eveto === 'Evento'){
                     // eventoCalendario = {
                     //     color: '#00FF00',
                     //     local: evento.local.nome,
