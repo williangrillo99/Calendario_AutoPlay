@@ -197,7 +197,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
   /* "primary" coloring */
 
 }
-.fc .fc-button-primary {
+.fc .fc-button-primary { /* Altera a cor base dos botoões da Navbar */
     color: #fff;
     color: var(--fc-button-text-color, #fff);
     background-color: #4052ab;
@@ -205,7 +205,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     border-color: #4052ab;
     border-color: var(--fc-button-border-color, #4052ab);
   }
-.fc .fc-button-primary:hover {
+.fc .fc-button-primary:hover { /* Altera a cor base dos botoões da Navbar quando o mouse está em cima*/
     color: #fff;
     color: var(--fc-button-text-color, #fff);
     background-color: #6C7ECC;
@@ -213,7 +213,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     border-color:#6C7ECC;
     border-color: var(--fc-button-hover-border-color, #6C7ECC);
   }
-.fc .fc-button-primary:disabled { /* not DRY */
+.fc .fc-button-primary:disabled { /* Altera a cor base do botão da Navbar que está ativo */
     color: #fff;
     color: var(--fc-button-text-color, #fff);
     background-color: #6C7ECC;
@@ -221,11 +221,11 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     border-color: #6C7ECC;
     border-color: var(--fc-button-border-color, #6C7ECC); /* overrides :hover */
   }
-.fc .fc-button-primary:focus {
+.fc .fc-button-primary:focus { /* Altera a cor da sombra dos botões da Navbar */
     box-shadow: 0 0 0 0.2rem rgba(136, 154, 235, 0.5);
   }
 .fc .fc-button-primary:not(:disabled):active,
-  .fc .fc-button-primary:not(:disabled).fc-button-active {
+  .fc .fc-button-primary:not(:disabled).fc-button-active { /* Altera a cor base do botão mês da Navbar */
     color: #fff;
     color: var(--fc-button-text-color, #fff);
     background-color: #6C7ECC;
@@ -292,7 +292,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-toolbar.fc-footer-toolbar {
     margin-top: 1.5em;
   }
-.fc .fc-toolbar-title {
+.fc .fc-toolbar-title { /* Altera o título da Navbar */
     font-size: 1.75em;
     margin: 0;
     font-weight: bold;
@@ -823,7 +823,7 @@ A HORIZONTAL event
   content: "";
   clear: both;
   display: table; }
-.fc .fc-daygrid-more-link {
+.fc .fc-daygrid-more-link { /* Texto "mais eventos" */
     position: relative;
     z-index: 4;
     cursor: pointer;
@@ -896,15 +896,15 @@ A HORIZONTAL event
   padding: 2px 0
 
 }
-.fc-daygrid-dot-event .fc-event-title {
+.fc-daygrid-dot-event .fc-event-title { /* Altera a estética do título do evento */
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 0; /* important for allowing to shrink all the way */
     overflow: hidden;
     font-weight: bold;
-    color: black; /* Muda a cor do title */
+    color: black; 
   }
-  .fc-event-title:hover { /* Colocar o cursor tipo ponteiro no title */
+  .fc-event-title:hover { /* Colocar o cursor tipo ponteiro no title do evento */
     cursor: pointer;
   }
 .fc-daygrid-dot-event:hover,
