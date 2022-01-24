@@ -59,6 +59,11 @@ class EventosController {
   }
 
   static async validaDisponibilidade(infoEvento){
+
+    if(!infoEvento.idEvento){
+      infoEvento.idEvento = 0;
+    }
+
     if(infoEvento.titulo_evento === 'Aula'){
       const professor = await UsuarioController.pegaIdProfessor(
         infoEvento.id_usuario
@@ -73,6 +78,7 @@ class EventosController {
 
       if (
         await EventosController.validaEvento(
+          infoEvento.idEvento,
           infoEvento.data,
           infoEvento.id_turma,
           "id_turma",
@@ -96,6 +102,7 @@ class EventosController {
 
     if (
       await EventosController.validaEvento(
+        infoEvento.idEvento,
         infoEvento.data,
         infoEvento.id_local,
         "id_local",
@@ -107,6 +114,7 @@ class EventosController {
     }
     if (
       await EventosController.validaEvento(
+        infoEvento.idEvento,
         infoEvento.data,
         infoEvento.id_usuario,
         "id_usuario",
@@ -225,7 +233,7 @@ class EventosController {
     const evento = await modelos.eventos.update(
       infoEvento,
       {
-        where: {id: infoEvento.id}
+        where: {id: infoEvento.idEvento}
       }
     )
     return evento
@@ -294,6 +302,7 @@ class EventosController {
   }
 
   static async validaEvento(
+    idEvento=0,
     data,
     idVerificador,
     nomeColuna,
@@ -301,7 +310,7 @@ class EventosController {
     horario_fim
   ) {
     const verifica = await modelos.sequelize.query(
-      `SELECT id,titulo_evento, dsc_evento, data,horario_inicio, horario_fim, id_disciplina, id_usuario, id_local, id_turma FROM eventos AS eventos WHERE (eventos.data = ? AND eventos.${nomeColuna} = ?) AND (( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( eventos.horario_inicio BETWEEN ? AND ?) OR (  eventos.horario_fim BETWEEN ? AND ?)) LIMIT 1;`,
+      `SELECT id,titulo_evento, dsc_evento, data,horario_inicio, horario_fim, id_disciplina, id_usuario, id_local, id_turma FROM eventos AS eventos WHERE (id <> ${idEvento}) AND (eventos.data = ? AND eventos.${nomeColuna} = ?) AND (( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( ? BETWEEN eventos.horario_inicio AND eventos.horario_fim) OR ( eventos.horario_inicio BETWEEN ? AND ?) OR (  eventos.horario_fim BETWEEN ? AND ?)) LIMIT 1;`,
       {
         replacements: [
           data,
@@ -319,5 +328,7 @@ class EventosController {
     return verifica.length != 0;
   }
 }
+
+// SELECT id,titulo_evento, dsc_evento, data,horario_inicio, horario_fim, id_disciplina, id_usuario, id_local, id_turma FROM eventos AS eventos WHERE id <> 3 AND ("eventos".data = '2022-01-23' AND "eventos".id_local = '1') AND (( '09:00:00' BETWEEN "eventos".horario_inicio AND "eventos".horario_fim) OR ('12:00:00' BETWEEN "eventos".horario_inicio AND "eventos".horario_fim) OR ( "eventos".horario_inicio BETWEEN '09:00:00' AND '12:00:00') OR ( "eventos".horario_fim BETWEEN '09:00:00' AND '12:00:00')) LIMIT 1;
 
 module.exports = EventosController;
