@@ -33,6 +33,7 @@ class CalendarioController{
                         local: evento.local.nome,
                         title: evento.titulo_evento,
                         qtd_pessoas: evento.local.capacidade,
+                        dsc_evento: evento.dsc_evento,
                         start: horarioInicio,
                         end: horarioFim,
                         responsavel: evento.usuario.nome

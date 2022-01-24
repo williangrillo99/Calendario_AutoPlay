@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (info.event.title === "Evento") {
           info.jsEvent.preventDefault();
           $('#visualizar2 #nomeEvento').text(info.event.title)
+          $('#visualizar2 #descricao').text(info.event._def.extendedProps.dsc_evento)
           $('#visualizar2 #responsavelEvento').text(info.event._def.extendedProps.responsavel)
           $('#visualizar2 #localEvento').text(info.event._def.extendedProps.local)
           $('#visualizar2 #qtdPessoas').text(info.event._def.extendedProps.qtd_pessoas)
-          // $('#visualizar2 #descricao').text(info.event._def.extendedProps.) DESCRIÇÃO **************
           $('#visualizar2 #inicioEvento').text(info.event.start.toLocaleString())
           $('#visualizar2 #fimEvento').text(info.event.end.toLocaleString())
           $('#visualizar2').modal('show')
