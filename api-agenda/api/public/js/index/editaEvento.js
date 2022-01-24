@@ -57,5 +57,34 @@ btnEditaAll.forEach(edita => {
         form.data.value = evento.data.data
         form.horario_inicio.value = evento.data.horario_inicio
         form.horario_fim.value = evento.data.horario_fim
+
+        btnConcluir.addEventListener('click', async () => {
+
+            let eventoAutalizado = {
+                titulo_evento: form.titulo_evento.value,
+                dsc_evento: form.dsc_evento.value,
+                data: form.data.value,
+                horario_inicio: form.horario_inicio.value,
+                horario_fim: form.horario_fim.value,
+                id_local: form.id_local.value,
+                id_usuario: form.id_usuario.value,
+                id_disciplina: form.id_disciplina.value,
+                id_turma: form.id_turma.value
+            }
+
+            if(btnConcluir.value == 'Atualizar'){
+                await axios.put(`http://localhost:8080/eventos/atualizar/${idEvento}`, eventoAutalizado)
+                    .then(() => {
+                        setTimeout(() => {
+                            window.location.href = `http://localhost:3001/?data=${eventoAutalizado.data}`
+                        }, 1000)
+                        notificao("Evento Atualizado com sucesso!")
+                    }).catch(error => {
+                        const erros = error.response.data.mensagem
+                        console.log(erros);
+                        notificaoErro(erros)
+                    })
+            }
+        })
     })
 })  

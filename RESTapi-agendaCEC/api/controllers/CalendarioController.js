@@ -27,16 +27,16 @@ class CalendarioController{
                 let horarioFim = evento.data + "T" +evento.horario_fim;
                 
                 let eventoCalendario = {}
-                if(evento.titulo_eveto === 'Evento'){
-                    // eventoCalendario = {
-                    //     color: '#00FF00',
-                    //     local: evento.local.nome,
-                    //     title: 'Evento',
-                    //     qtd_pessoas: evento.local.capacidade,
-                    //     start: horarioInicio,
-                    //     end: horarioFim,
-                    //     responsavel: evento.usuario.nome
-                    // };
+                if(evento.titulo_evento === 'Evento'){
+                    eventoCalendario = {
+                        color: '#00FF00',
+                        local: evento.local.nome,
+                        title: evento.titulo_evento,
+                        qtd_pessoas: evento.local.capacidade,
+                        start: horarioInicio,
+                        end: horarioFim,
+                        responsavel: evento.usuario.nome
+                    };
                 }else{
                     eventoCalendario = {
                         title: evento.turma.nome,
