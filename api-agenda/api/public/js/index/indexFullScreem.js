@@ -1,8 +1,6 @@
 isFullScreen = false;
 var elem = document.querySelector(".fundo");
 var painel = document.querySelector(".turmas");
-var scrollerId;
-var pausar = true;
 var botao = document.querySelector('#full');
 var maxScrollLeft = painel.scrollWidth - painel.clientWidth;
 
@@ -43,12 +41,22 @@ function AtivarDesativarFS() {
     }
 }
 
-botao.addEventListener("click", () => {
-  setInterval(function (){
-    if(painel.scrollLeft > (maxScrollLeft - 1)) {
-      painel.scrollLeft -= maxScrollLeft;
-    } else {
-      painel.scrollLeft += 1;
-    }
-  }, 40);
+// Função caroulsel
+function autoplay() {
+  if(painel.scrollLeft > (maxScrollLeft -1)) {
+    painel.scrollLeft -= maxScrollLeft;
+  } else {
+    painel.scrollLeft += 1;
+  }
+}
+var play = setInterval(autoplay, 40);
+
+// pausar a função caroulsel
+painel.addEventListener("click", () => {
+  clearInterval(play);
+});
+
+// continuar a função caroulsel
+painel.addEventListener("dblclick", () => {
+  return play = setInterval(autoplay, 40);
 });
