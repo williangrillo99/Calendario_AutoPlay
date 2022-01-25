@@ -273,3 +273,15 @@ form label, h3{
 	transition: 3s;
 	opacity: 0;
 }
+
+#checksemanal{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.diadasemana{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

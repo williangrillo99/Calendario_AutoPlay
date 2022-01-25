@@ -226,3 +226,7 @@ input:focus{
     border-radius: 5px;
 }
 
+#checksemanal{
+    display: none;
+    align-items: center;
+}

@@ -1,11 +1,15 @@
 const checkbox = document.querySelector('#verificaRecorrencia')
 const inputRecorrencia = document.querySelector('#recorrencia')
-
+const checksemana = document.querySelector('#checksemanal')
 
 checkbox.addEventListener('change', () =>{
     if(checkbox.checked){
         inputRecorrencia.readOnly = false
+        checksemana.style.display = "flex"
+        // checksemana.classList.toggle("checksemanalAtivo")
     }else{
+        checksemana.style.display = "none"
+        // checksemana.classList.toggle("checksemanalAtivo")
         inputRecorrencia.readOnly = true
         inputRecorrencia.value = ''
     }
