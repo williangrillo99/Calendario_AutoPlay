@@ -62,5 +62,3 @@ function autoplay() {
     painel.scrollLeft += 1;
   }
 }
-
-
