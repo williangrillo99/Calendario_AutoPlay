@@ -1,11 +1,13 @@
 const checkbox = document.querySelector('#verificaRecorrencia')
 const inputRecorrencia = document.querySelector('#recorrencia')
-
+const checksemana = document.querySelector('#checksemanal')
 
 checkbox.addEventListener('change', () =>{
     if(checkbox.checked){
         inputRecorrencia.readOnly = false
+        checksemana.style.display = "flex"
     }else{
+        checksemana.style.display = "none"
         inputRecorrencia.readOnly = true
         inputRecorrencia.value = ''
     }
@@ -24,8 +26,18 @@ let btnConcluir = document.querySelector('#botaoConcluir')
 
 btnConcluir.addEventListener('click', async event => {
     event.preventDefault();
-
+    
     if(btnConcluir.value == 'Adicionar'){
+        
+        let diasDaSemana = []
+        if(form.recorrencia.value){
+            form.valorSemanal.forEach(dia => {
+                if(dia.checked){
+                    diasDaSemana.push(dia.value)
+                }
+            })
+        }
+
         const evento = {
             titulo_evento: form.titulo_evento.value,
             dsc_evento: form.dsc_evento.value,
@@ -36,9 +48,9 @@ btnConcluir.addEventListener('click', async event => {
             id_usuario: form.id_usuario.value,
             id_disciplina: form.id_disciplina.value,
             id_turma: form.id_turma.value,
-            recorrencia: form.recorrencia.value
+            recorrencia: form.recorrencia.value,
+            diasSemana: diasDaSemana
         }
-        console.log(evento);
     
         await axios.post('http://localhost:8080/eventos/cadastro', evento
         ).then((item) => {

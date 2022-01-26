@@ -7,9 +7,9 @@
     "dialect": "postgres",
     "timezone": "-03:00"
   },
-  "test": {
+  "root": {
     "username": "root",
-    "password": "Dreadmin",
+    "password": "root",
     "database": "agenda-cec",
     "host": "localhost",
     "dialect": "mysql",
