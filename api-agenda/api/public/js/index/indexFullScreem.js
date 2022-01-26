@@ -39,9 +39,22 @@ function AtivarDesativarFS() {
       document.msExitFullscreen();
       isFullScreen = false;
     }
+
+    var play = setInterval(autoplay, 40);
+
+    // pausar a função carousel
+  painel.addEventListener("click", () => {
+    clearInterval(play);
+  });
+
+  // continuar a função carousel
+  painel.addEventListener("dblclick", () => {
+    return play = setInterval(autoplay, 40);
+  });
+
 }
 
-// Função caroulsel
+// Função carousel
 function autoplay() {
   if(painel.scrollLeft > (maxScrollLeft -1)) {
     painel.scrollLeft -= maxScrollLeft;
@@ -49,14 +62,5 @@ function autoplay() {
     painel.scrollLeft += 1;
   }
 }
-var play = setInterval(autoplay, 40);
 
-// pausar a função caroulsel
-painel.addEventListener("click", () => {
-  clearInterval(play);
-});
 
-// continuar a função caroulsel
-painel.addEventListener("dblclick", () => {
-  return play = setInterval(autoplay, 40);
-});
