@@ -132,31 +132,40 @@ class EventosController {
 
     //verifica se há referência
     let recorrencia = infoEvento.recorrencia;
+    let diasDaSemana = infoEvento.diasSemana;
+
     delete infoEvento.recorrencia;
+    delete infoEvento.diasSemana;
 
-    if (recorrencia) {
+    // let eventos = []
+
+    if (!!recorrencia) {
       let dataRecorrencia = new Date(infoEvento.data);
+      let i = 0;
 
-      for (let i = 0; i < recorrencia; i++) {
+      while(i < recorrencia) {    
         let novoDia = dataRecorrencia.getDate() + 1;
         dataRecorrencia.setDate(novoDia);
 
-        infoEvento.data = dataRecorrencia;
+        diasDaSemana.forEach(async diaDaSemana => {
+          if(dataRecorrencia.getDay() == diaDaSemana){
 
-        if (
-          !(dataRecorrencia.getDay() === 0 || dataRecorrencia.getDay() === 6)
-        ) {
-          await modelos.eventos.create(infoEvento);
-        } else {
-          i--;
-        }
+            i++;
+            infoEvento.data = dataRecorrencia.toLocaleDateString().split('/').reverse().join('-');
+
+            await modelos.eventos.create(infoEvento);
+          }
+        })  
+        
       }
       return "Eventos cadastrados!";
+      
     } else {
       const evento = await modelos.eventos.create(infoEvento);
       return evento;
     }
   }
+  
 
   static async listar() {
     const arrayEventos = [];

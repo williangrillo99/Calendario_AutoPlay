@@ -27,8 +27,6 @@ let disciplina = inputsTurmaDisciplina.querySelector('#id_disciplina')
 let dscEvento = document.querySelector('.container-dsc-evento')
 let textArea  = dscEvento.getElementsByTagName('textarea')[0]
 
-console.log(inputEventos);
-console.log(titulo_eventos);
 inputEventos.addEventListener('change', () => {
     titulo_eventos.forEach(async (evento) => {
         console.log(dscEvento);

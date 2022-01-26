@@ -1,5 +1,5 @@
 {
-  "test": {
+  "development": {
     "username": "tzzfrykg",
     "password": "MsrUg-2Q8FTlyqvado083yMuIAkjDPKC",
     "database": "tzzfrykg",
@@ -7,7 +7,7 @@
     "dialect": "postgres",
     "timezone": "-03:00"
   },
-  "development": {
+  "root": {
     "username": "root",
     "password": "root",
     "database": "agenda-cec",
