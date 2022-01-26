@@ -51,4 +51,15 @@ rotasEventos.put('/atualizar/:idEvento', async (req, res, prox) => {
   }
 })
 
+rotasEventos.delete('/deletar/:idEvento', async (req, res, prox) =>  {
+  try {
+    const idEvento = req.params.idEvento
+    const evento = await EventosController.deletaEvento(idEvento)
+    res.status(204)
+    res.end()
+  } catch (error) {
+    prox(error)
+  }
+})
+
 module.exports = rotasEventos;

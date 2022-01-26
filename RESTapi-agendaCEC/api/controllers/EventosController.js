@@ -248,6 +248,16 @@ class EventosController {
     return evento
   }
 
+  static async deletaEvento(idEvento){
+    const evento =  await modelos.eventos.destroy(
+      {
+        where: {id: idEvento}
+      }
+    )
+
+    return evento
+  }
+
   static async pegaEventoPorId(id){
     const eventos = await modelos.eventos.findOne({
       where: {id: id},
