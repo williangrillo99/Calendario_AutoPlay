@@ -1,0 +1,33 @@
+.containerRelatorio{
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    display:flex;
+   
+}
+.card{
+    width: 200px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.relatorioName{
+    padding: 0px 15px;
+    font-weight: 600; 
+    font-size: 24px
+}
+.card-title{
+    color: #4052ab;
+    font-weight: 600;
+    font-size: 20px;
+
+}
+.card-border{
+    border: 1px solid #cccccc;
+
+}
+.total{
+    padding: 0px 15px;
+    font-size: 16px;
+    color: #C0C0C0;
+}

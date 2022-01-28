@@ -34,6 +34,9 @@ module.exports = (app) => {
   const rotasPilares = require("./routerPilares");
   app.use("/pilares", rotasPilares);
 
+  const routerRelatorio = require("./routerRelatorio");
+  app.use("/relatorios", routerRelatorio)
+
   app.use((erro, req, res, prox) => {
       let status = 500;
 

@@ -20,6 +20,9 @@ module.exports = app =>{
     const rotaCalendario = require('./routerCalendario')
     app.use('/calendario', rotaCalendario)
 
+    const rotasRelatorio = require('./routerRelatorio')
+    app.use('/relatorios', rotasRelatorio)
+
     // app.locals.teste = 1+1;
     const rotasEventos = require('./routerEventos')
     app.use('/', rotasEventos)
